@@ -1,0 +1,50 @@
+{
+  "name": "@starlightcms/react-sdk",
+  "version": "0.0.0",
+  "description": "The Starlight SDK for React",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "dev": "tsc --watch",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starlightcms/react-sdk.git"
+  },
+  "keywords": [
+    "starlight",
+    "sdk"
+  ],
+  "author": "Lucas Varela <hi@lucasvarela.dev>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/starlightcms/react-sdk/issues"
+  },
+  "homepage": "https://github.com/starlightcms/react-sdk#readme",
+  "devDependencies": {
+    "@types/node": "^16.10.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.4.1",
+    "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
