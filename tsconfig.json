@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "module": "commonjs",
+    "module": "esnext",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,7 +10,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"]
 }

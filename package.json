@@ -2,9 +2,15 @@
   "name": "@starlightcms/react-sdk",
   "version": "0.0.1",
   "description": "The Starlight SDK for React",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js"
+  },
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && npm run build:cjs && npm run build:esm",
+    "build:esm": "tsc --module esnext --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "dev": "tsc --watch",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
