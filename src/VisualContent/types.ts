@@ -7,6 +7,8 @@ import {
   VisualData,
   VisualDataBlock,
   BlockType,
+  HTMLBlock,
+  ListBlock,
 } from '@starlightcms/js-sdk'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -18,6 +20,8 @@ export interface BlockComponents
   header: ComponentType<VisualDataBlock<HeaderBlock>>
   quote: ComponentType<VisualDataBlock<QuoteBlock>>
   image: ComponentType<VisualDataBlock<ImageBlock>>
+  raw: ComponentType<VisualDataBlock<HTMLBlock>>
+  list: ComponentType<VisualDataBlock<ListBlock>>
 }
 
 export type VisualContentProps = {

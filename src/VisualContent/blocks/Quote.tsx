@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react'
+import React, { FC } from 'react'
 import { QuoteBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 
 const Quote: FC<VisualDataBlock<QuoteBlock>> = ({ data }) => {
@@ -7,4 +7,4 @@ const Quote: FC<VisualDataBlock<QuoteBlock>> = ({ data }) => {
   )
 }
 
-export default memo(Quote)
+export default Quote

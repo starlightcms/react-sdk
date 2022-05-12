@@ -11,7 +11,8 @@
     "build": "rimraf dist && npm run build:cjs && npm run build:esm",
     "build:esm": "tsc --module esnext --outDir dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "dev": "tsc --watch",
+    "dev": "tsc --watch --module esnext --outDir dist/esm",
+    "dev:cjs": "tsc --watch --module commonjs --outDir dist/cjs",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -53,7 +54,9 @@
     ]
   },
   "dependencies": {
-    "@starlightcms/js-sdk": "^0.4.1",
-    "react": "^17.0.2"
+    "@starlightcms/js-sdk": "^0.5.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0"
   }
 }

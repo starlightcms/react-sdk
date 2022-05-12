@@ -1,16 +1,15 @@
-import React, { createElement, FC, memo } from 'react'
+import React, { FC } from 'react'
 import { HeaderBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 
 const Header: FC<VisualDataBlock<HeaderBlock>> = ({ data }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const HeaderComponent: FC<any> = ({ children, ...props }) =>
-    createElement(`h${data.level}`, props, children)
+  const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
-    <HeaderComponent className="sl-content-block sl-header">
-      {data.text}
-    </HeaderComponent>
+    <HeaderComponent
+      className="sl-content-block sl-header"
+      dangerouslySetInnerHTML={{ __html: data.text }}
+    />
   )
 }
 
-export default memo(Header)
+export default Header
