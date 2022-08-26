@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react'
+import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
 import Paragraph from './blocks/Paragraph'
 import Header from './blocks/Header'
@@ -16,17 +17,41 @@ const defaultComponents: BlockComponents = {
   list: List,
 }
 
-const VisualContent: FC<VisualContentProps> = ({
+export const VisualContent: FC<VisualContentProps> = ({
   content,
   components = {},
+  excerpt = false,
+  excerptLength = 40,
 }) => {
+  if (!content) {
+    return null
+  }
+
   const componentList = useMemo(
     () => ({ ...defaultComponents, ...components }),
     [components]
   )
 
-  if (!content) {
-    return null
+  if (excerpt) {
+    const block = content.blocks.find((block) => block.type === 'paragraph')
+
+    if (!block) return null
+
+    const text = (block as VisualDataBlock<ParagraphBlock>).data.text.split(' ')
+    const excerptText =
+      text.length > excerptLength
+        ? text.splice(0, excerptLength).join(' ') + '...'
+        : text.join(' ')
+    const Component = componentList.paragraph
+
+    return (
+      <Component
+        key={block.id}
+        id={block.id}
+        type={block.type}
+        data={{ text: excerptText }}
+      />
+    )
   }
 
   return (
@@ -49,6 +74,11 @@ const VisualContent: FC<VisualContentProps> = ({
   )
 }
 
-export default VisualContent
-
-export { Paragraph, Header, Quote, Image, HTML, List }
+export {
+  Paragraph as ParagraphComponent,
+  Header as HeaderComponent,
+  Quote as QuoteComponent,
+  Image as ImageComponent,
+  HTML as HTMLComponent,
+  List as ListComponent,
+}

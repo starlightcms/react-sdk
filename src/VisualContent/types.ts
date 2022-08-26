@@ -27,4 +27,6 @@ export interface BlockComponents
 export type VisualContentProps = {
   content?: VisualData
   components?: Partial<BlockComponents>
+  excerpt?: boolean
+  excerptLength?: number
 }
