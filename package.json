@@ -1,6 +1,6 @@
 {
   "name": "@starlightcms/react-sdk",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "The Starlight SDK for React",
   "main": "dist/cjs/index.js",
   "exports": {
