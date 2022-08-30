@@ -1,6 +1,7 @@
 import React, { FC, useMemo } from 'react'
 import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
+import { VisualContentStyles } from './styles'
 import Paragraph from './blocks/Paragraph'
 import Header from './blocks/Header'
 import Quote from './blocks/Quote'
@@ -23,14 +24,14 @@ export const VisualContent: FC<VisualContentProps> = ({
   excerpt = false,
   excerptLength = 40,
 }) => {
-  if (!content) {
-    return null
-  }
-
   const componentList = useMemo(
     () => ({ ...defaultComponents, ...components }),
     [components]
   )
+
+  if (!content) {
+    return null
+  }
 
   if (excerpt) {
     const block = content.blocks.find((block) => block.type === 'paragraph')
@@ -75,6 +76,7 @@ export const VisualContent: FC<VisualContentProps> = ({
 }
 
 export {
+  VisualContentStyles,
   Paragraph as ParagraphComponent,
   Header as HeaderComponent,
   Quote as QuoteComponent,
