@@ -1,4 +1,11 @@
-import React, { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  ReactNode,
+  RefObject,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { MediaObject } from '@starlightcms/js-sdk'
 
 const transparentImage =
@@ -19,6 +26,8 @@ type ResponsiveImageProps = {
   alt?: string
   variation?: string
   background?: string
+  lazyRoot?: RefObject<HTMLElement> | null
+  lazyRootMargin?: string
 }
 
 export const ResponsiveImage = ({
@@ -28,6 +37,8 @@ export const ResponsiveImage = ({
   alt = typeof image === 'string' ? '' : image.alt,
   variation = 'optimized',
   background = '',
+  lazyRoot,
+  lazyRootMargin = '200px',
 }: ResponsiveImageProps): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null)
 
@@ -83,15 +94,21 @@ export const ResponsiveImage = ({
 
   useEffect(() => {
     let ref: HTMLImageElement | null = null
-    const observer = new IntersectionObserver((entries, observer) => {
-      if (entries[0].intersectionRatio > 0) {
-        // Image entered the viewport, set it as loadable
-        setCanLoad(true)
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        if (entries[0].intersectionRatio > 0) {
+          // Image entered the viewport, set it as loadable
+          setCanLoad(true)
 
-        // Stop observing the image
-        observer.unobserve(ref as HTMLImageElement)
+          // Stop observing the image
+          observer.unobserve(ref as HTMLImageElement)
+        }
+      },
+      {
+        root: lazyRoot?.current,
+        rootMargin: lazyRootMargin,
       }
-    })
+    )
 
     if (imageRef.current) {
       ref = imageRef.current
