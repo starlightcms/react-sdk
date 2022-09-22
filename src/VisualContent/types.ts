@@ -24,9 +24,29 @@ export interface BlockComponents
   list: ComponentType<VisualDataBlock<ListBlock>>
 }
 
-export type VisualContentProps = {
+/**
+ * Props accepted by the {@link VisualContent} component.
+ * @group VisualContent
+ */
+export interface VisualContentProps {
+  /**
+   * The content to render. It should be the object returned by
+   * Starlight on a Visual Editor field. Required.
+   */
   content?: VisualData
+  /**
+   * An optional object of React components. You can pass any
+   * number of replacement components that will render blocks of a given type.
+   */
   components?: Partial<BlockComponents>
+  /**
+   * If true, only a small portion of the content will be rendered,
+   * and block types other than text paragraphs will be ignored. Defaults to false.
+   */
   excerpt?: boolean
+  /**
+   * Defines the maximum number of words to render when
+   * excerpt is true. Defaults to 40.
+   */
   excerptLength?: number
 }

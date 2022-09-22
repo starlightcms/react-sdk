@@ -27,6 +27,17 @@ const styles = `
   .sl__color__text--gray{color:rgb(120,119,116)}
 `
 
+/**
+ * Renders a `<style>` tag with rules that style the rendered
+ * {@link VisualContent} HTML. While not required for VisualContent to work,
+ * using these rules is a quick way to make the content look the same way as it
+ * does on the Starlight content editor.
+ *
+ * You only need to render this component once in your application,
+ * preferably in the `<head>` section.
+ *
+ * @group VisualContent
+ */
 export const VisualContentStyles = (): JSX.Element => {
   return <style dangerouslySetInnerHTML={{ __html: styles }} />
 }

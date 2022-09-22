@@ -22,6 +22,17 @@ const SubList: FC<SubListProps> = ({ item, Wrapper }) => {
   )
 }
 
+/**
+ * VisualContent renderer component that renders `list` type blocks
+ * as `<ul>` or `<ol>` elements, depending on the list style.
+ *
+ * See {@doclink components/VisualContent/#customizing-components | the guide page on the VisualContent component}
+ * to learn how to customize block renderer components like this one.
+ *
+ * @param props VisualDataBlock object. See {@link ListBlock} to learn the
+ * type of data this component receives.
+ * @group VisualContent Renderers
+ */
 const List: FC<VisualDataBlock<ListBlock>> = ({ data }) => {
   const ListWrapper = data.style === 'ordered' ? 'ol' : 'ul'
 

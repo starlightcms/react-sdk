@@ -2,6 +2,9 @@
   "name": "@starlightcms/react-sdk",
   "version": "0.8.0",
   "description": "The Starlight SDK for React",
+  "workspaces": [
+    "website"
+  ],
   "main": "dist/cjs/index.js",
   "exports": {
     "require": "./dist/cjs/index.js",
@@ -13,6 +16,9 @@
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "dev": "tsc --watch --module esnext --outDir dist/esm",
     "dev:cjs": "tsc --watch --module commonjs --outDir dist/cjs",
+    "docs": "npm start -w website",
+    "docs:build": "npm run build -w website",
+    "docs:serve": "npm run serve -w website",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"

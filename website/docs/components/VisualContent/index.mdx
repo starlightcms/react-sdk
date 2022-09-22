@@ -1,0 +1,199 @@
+---
+sidebar_position: 1
+---
+import { Example, ExcerptExample, CustomExample } from './_examples'
+
+# VisualContent
+
+## Componente {#component}
+
+<APILink href="/api/function/VisualContent" />
+
+O componente [VisualContent](/api/function/VisualContent) renderiza conteúdo de um campo de Editor Visual do Starlight
+em HTML.
+
+Para fins ilustrativos, esse é um exemplo de um conteúdo básico renderizado nessa página:
+
+<Example />
+
+Nós escrevemos nosso próprio objeto `content` nesse exemplo, mas em aplicações de verdade você não precisa fazer isso.
+Esse objeto com informações de conteúdo é retornado pelo Starlight sempre que um modelo utiliza um campo do
+tipo Visual Editor.
+
+Dito isso, esse é um exemplo de uso mais próximo da realidade:
+
+```jsx
+import Starlight, { VisualContent } from '@starlightcms/react-sdk'
+
+// Assuma que criamos um modelo de postagens de blog que usa o slug "posts",
+// e que criamos um campo de Editor Visual com a chave "post_content".
+const EntryComponent = ({ slug }) => {
+  const [entry, setEntry] = useState(null)
+
+  // Esse é apenas um exemplo, você pode requisitar
+  // uma entrada da maneira que preferir.
+  useEffect(async () => {
+    const response = await Starlight.posts.entries.get(slug)
+
+    setEntry(response.data)
+  }, [ slug ])
+
+  // Depois de requisitado, o conteúdo vai estar na propriedade `entry.data.post_content`.
+  return (
+    entry ? (
+       <article>
+         <h1>{entry.title}</h1>
+         <VisualContent content={entry.data.post_content} />
+       </article>
+    ) : (
+      <div>Carregando...</div>
+    )
+  )
+}
+```
+
+## Estilos CSS {#styles}
+
+<APILink href="/api/function/VisualContentStyles" label="Ver VisualContentStyles na API"/>
+
+Por padrão, o componente [VisualContent](#component) não aplica estilos CSS no conteúdo renderizado, mas todos os seus
+blocos contém classes CSS que possibilitam que seus elementos sejam estilizados manualmente. Assim, você pode estilizar
+esses elementos da maneira que preferir.
+
+Para simplificar a estilização, o React SDK provê o componente [VisualContentStyles](/api/function/VisualContentStyles),
+que renderiza uma tag `<style>` com estilos básicos para que o conteúdo renderizado tenha a mesma aparência que no
+editor de conteúdo na interface do Starlight.
+
+Para utilizar esses estilos, você deve renderizar o componente VisualContentStyles apenas uma vez na sua aplicação.
+Você pode renderizar esse componente onde preferir, mas o ideal é inseri-lo na tag `<head>`:
+
+```jsx
+// src/MyApp.js
+import { VisualContentStyles } from '@starlightcms/react-sdk'
+import { Helmet } from 'react-helmet'
+import { Routes, Route } from 'react-router-dom'
+
+// Nesse exemplo, usamos o react-helmet para
+// inserir nossos estilos no <head> da nossa aplicação.
+const MyApp = () => {
+  return (
+    <>
+      <Helmet>
+        <VisualContentStyles />
+      </Helmet>
+      <Routes>
+        <Route path={...} element={...}/>
+        ...
+      </Routes>
+    </>
+  )
+}
+
+```
+
+## Resumindo o conteúdo {#content-excerpts}
+
+O componente [VisualContent](#component) suporta a propriedade `excerpt` que, se passada, limita o conteúdo renderizado
+a 40 palavras. Essa função é útil para gerar resumos do conteúdo em listagens, como, por exemplo, em uma página de
+posts de um blog, onde cada post só precisa de um rápido resumo do seu conteúdo.
+
+Você também pode alterar a tamanho do resumo utilizando a propriedade `excerptLength`, que recebe o número máximo de
+palavras que serão renderizadas. Por padrão, o número máximo de palavras é 40. Ao atingir esse limite, o texto é cortado
+e termina em reticências (...).
+
+Para exemplificar, vamos reutilizar o exemplo no início dessa página:
+
+<ExcerptExample />
+
+Note que, no exemplo acima, o cabeçalho "Olá, mundo! 😃" não foi renderizado. Isso acontece porque, ao passar a
+propriedade `excerpt`, o componente renderiza apenas blocos de parágrafo, ignorando todo o resto, como cabeçalhos,
+imagens, listas, embeds, etc. Isso garante que o conteúdo renderizado não vai "quebrar" o layout da sua aplicação.
+
+## Personalizando componentes {#customizing-components}
+
+O componente [VisualContent](#component) também permite que você personalize como blocos são renderizados. Para isso,
+basta passar um objeto de componentes personalizados pela propriedade `components`. Cada componente recebe um objeto
+com o conteúdo a ser renderizado, e pode renderizar esse conteúdo da maneira que preferir.
+
+Por exemplo, por padrão, blocos de lista são renderizados utilizando elementos `<ul>` ou `<ol>`, dependendo se essas
+listas são ordenadas ou sem ordem. Se quisermos mudar esse comportamento, podemos criar um componente personalizado para
+isso.
+
+No exemplo abaixo, vamos renderizar listas ordenadas como texto simples separado por vírgulas, mas vamos
+renderizar listas sem ordem sem alterações, utilizando o componente original:
+
+<CustomExample />
+
+Todos os componentes que renderizam blocos podem ser personalizados, e os tipos de bloco suportados estão listados na
+tabela abaixo. Para substituir um componente, passe um objeto para a propriedade `components` onde cada chave é um tipo
+da tabela abaixo, assim como foi feito com o componente `list` no exemplo acima.
+
+Todo componente recebe um objeto do tipo [VisualDataBlock](/api/interface/VisualDataBlock) que contém 3 propriedades:
+`id`, `type` e `data`.
+
+- `id` pode ser usado para identificar o bloco atual dentro do conteúdo.
+- `type` é uma string com o tipo do bloco atual.
+- `data` é um objeto com o conteúdo do bloco.
+
+A propriedade `data` é genérica e seu conteúdo depende do `type` do bloco. Você pode clicar no link da terceira coluna
+da tabela abaixo para saber quais dados a propriedade `data` terá para seu respectivo tipo de bloco.
+
+Na quarta coluna, você pode ver qual componente do SDK renderiza esse tipo de bloco por padrão, o que pode ser útil
+para servir de referência na hora de implementar um componente customizado.
+
+### Blocos suportados {#supported-blocks}
+
+| Nome do bloco | Tipo        | Dados recebidos pelo componente                 | Componente padrão                                      |
+|---------------|-------------|-------------------------------------------------|--------------------------------------------------------|
+| Cabeçalho     | `header`    | [HeaderBlock](/api/interface/HeaderBlock)       | [HeaderComponent](/api/function/HeaderComponent)       |
+| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
+| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
+| Citação       | `quote`     | [QuoteBlock](/api/interface/QuoteBlock)         | [QuoteComponent](/api/function/QuoteComponent)         |
+| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
+| HTML          | `raw`       | [HTMLBlock](/api/interface/HTMLBlock)           | [HTMLComponent](/api/function/HTMLComponent)           |
+
+### Imagens responsivas {#responsive-images}
+
+O componente [ImageComponent](/api/function/ImageComponent), que renderiza blocos do tipo `image` por padrão, provê uma
+propriedade adicional para dar suporte a imagens responsivas: a propriedade `sizes`. Essa propriedade define
+[o atributo de mesmo nome na tag `<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-sizes) que é
+renderizada.
+
+Essa propriedade serve para permitir que o navegador use a imagem de melhor tamanho dentre as variações geradas pelo
+Starlight de acordo com o tamanho da tela do usuário. Você pode aprender mais sobre essa propriedade [na página do MDN
+sobre imagens responsivas](https://developer.mozilla.org/pt-BR/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#mudan%C3%A7a_de_resolu%C3%A7%C3%A3o_diferentes_tamanhos).
+Você só precisa definir a propriedade `sizes`: o atributo `srcset` é automaticamente gerado pelo ImageComponent.
+
+Por padrão, a propriedade `sizes` tem o valor de `'(max-width: 480px) 90vw, 70vw'`, que funciona bem para a maioria
+dos sites. Para alterar essa propriedade, você só precisa criar um componente de imagem personalizado:
+
+```jsx
+import { VisualContent, ImageComponent } from '@starlightcms/react-sdk'
+
+const CustomImageComponent = (props) => {
+  return (
+    // Você só precisa definir a propriedade "sizes" e repassar todos os props.
+    <ImageComponent
+      sizes="(max-width: 320px) 90vw, (max-width: 900px) 300px, 500px"
+      {...props}
+    />
+  )
+}
+
+const ResponsiveImageExample = () => {
+  const content = {
+    time: 1663784614074,
+    version: '1.42',
+    blocks: [...]
+  }
+
+  return (
+    <VisualContent
+      content={content}
+      components={{
+        image: CustomImageComponent
+      }}
+    />
+  )
+}
+```

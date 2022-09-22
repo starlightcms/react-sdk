@@ -1,0 +1,7 @@
+label: 'Componentes'
+collapsed: false
+link:
+  type: generated-index
+  slug: /components
+  description: O React SDK do Starlight provê alguns componentes para simplificar a integração de aplicações React com
+    o Starlight. Esses componentes são documentados nessa seção do guia.

@@ -1,0 +1,31 @@
+.example {
+  margin-bottom: 1rem;
+
+  :global(.theme-code-block) {
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+
+.exampleHeader {
+  padding: .75rem 1rem;
+  margin: 0;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-heading-color);
+
+  &:first-child {
+    border-top-left-radius: var(--ifm-code-border-radius);
+    border-top-right-radius: var(--ifm-code-border-radius);
+  }
+}
+
+.exampleContent {
+  background-color: #f6f8fa;
+  padding: 2rem 2rem 1rem;
+  border-bottom-left-radius: var(--ifm-code-border-radius);
+  border-bottom-right-radius: var(--ifm-code-border-radius);
+
+  [data-theme='dark'] & {
+    background-color: #282A36;
+  }
+}

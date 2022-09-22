@@ -1,0 +1,75 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Introdução
+
+Nesse guia, aprenderemos a utilizar o React SDK do Starlight, uma ferramenta oficial que automatiza o processo
+de integração de aplicações React com as APIs do Starlight.
+
+Além desse guia, você também pode verificar a referência de todos os objetos e métodos do SDK [na seção API](/api).
+Você pode sempre acessar a seção API no menu do topo desse site, ou no menu de hambúrguer em dispositivos mobile. Além
+disso, várias páginas desse guia contém links para visualizar páginas da API relacionadas ao conteúdo.
+
+## Diferença entre React SDK e JS SDK {#react-and-js-sdk-differences}
+
+O React SDK é baseado em outro SDK do Starlight: o [JavaScript SDK](https://js.sdk.starlight.sh) (ou JS SDK, abreviado).
+Isso significa que, além dos componentes específicos para React que o React SDK provê, você também pode utilizar todas
+as funções, métodos e tipos exportados pelo JS SDK.
+
+Recomendamos ler a [documentação do JS SDK](https://js.sdk.starlight.sh/docs/intro) para conhecer tudo que ele provê.
+
+Além disso, você não precisa instalar o JS SDK se você já instalou o React SDK. O React SDK exporta tudo que o JS SDK
+provê, então você pode simplesmente substituir `js-sdk` por `react-sdk` em qualquer exemplo do JS SDK:
+
+```js
+// Por exemplo, makeStarlightClient é parte do JS SDK,
+// mas o React SDK o exporta também!
+import { makeStarlightClient } from '@starlightcms/react-sdk'
+
+const client = makeStarlightClient({
+  workspace: '1234567890'
+})
+```
+
+Você também vai ver menções por `js-sdk` na [seção API](/api) desse site, já que essa seção é gerada automaticamente
+a partir do código dos dois SDKs. Assim como no descrito acima, basta substituir
+`js-sdk` por `react-sdk` para utilizar os exemplos localmente.
+
+## Instalação {#installation}
+
+Para começar a utilizar o React SDK, instale-o no seu projeto:
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+  ```bash
+  npm install @starlightcms/react-sdk
+  ```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn" default>
+
+  ```bash
+  yarn add @starlightcms/react-sdk
+  ```
+
+  </TabItem>
+</Tabs>
+
+Depois de instalado, você precisa configurar qual área de trabalho deve ser utilizada para requisitar dados. Dê uma
+olhada na [página sobre o StarlightClient to JS SDK](https://js.sdk.starlight.sh/docs/client#configuring-the-global-client)
+para saber mais.
+
+E lembre-se: você não precisa instalar o JS SDK na sua aplicação. Como explicado
+[na seção acima](#react-and-js-sdk-differences), o React SDK exporta tudo que o JS SDK exporta.
+
+## TypeScript
+
+O React SDK é escrito em TypeScript e "tipa" corretamente todos os seus componentes, o que é útil mesmo que você use
+JavaScript comum na sua aplicação, já que sua IDE pode usar esses tipos para lhe ajudar no desenvolvimento.
+
+Todos os tipos exportados pelo React SDK são detalhados na [seção da API](/api) desse site.

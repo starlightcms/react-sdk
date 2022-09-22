@@ -5,3 +5,4 @@ export * from './VisualContent'
 export * from './ResponsiveImage'
 
 export default Starlight
+export { ResponsiveImageProps } from './ResponsiveImage/types'
