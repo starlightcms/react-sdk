@@ -49,8 +49,8 @@ The SDK is capable of requesting a myriad of different content from your workspa
 
 ## JavaScript SDK
 
-If you don't use React, take a look at [the Starlight JavaScript SDK](https://github.com/starlightcms/react-sdk). The
-React SDK is based on the JavaScript SDK, and most of its functionality comes from the JS SDK.
+If you don't use React, take a look at [the Starlight JavaScript SDK](https://github.com/starlightcms/js-sdk). It
+provides most of React SDK's functionality, and you can use it with vanilla JavaScript or any JS framework.
 
 ## Issues
 

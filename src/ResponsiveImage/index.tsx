@@ -80,7 +80,7 @@ export const ResponsiveImage = ({
   background = '',
   lazyRoot,
   lazyRootMargin = '200px',
-}: ResponsiveImageProps): ReactNode => {
+}: ResponsiveImageProps): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null)
 
   // When true, the image may load normally
@@ -189,4 +189,4 @@ export const ResponsiveImage = ({
   )
 }
 
-export { ResponsiveImageProps }
+export type { ResponsiveImageProps }

@@ -1,0 +1,251 @@
+---
+sidebar_position: 2
+---
+import { Example } from './_examples'
+
+# ResponsiveImage
+
+## Componente {#component}
+
+<APILink href="/api/function/ResponsiveImage" />
+
+O componente [ResponsiveImage](/api/function/ResponsiveImage) renderiza uma imagem a partir de uma URL ou de um arquivo
+de mídia do Starlight. No caso de imagens do Starlight, o componente renderiza uma imagem responsiva. Além disso, todas
+as imagens são renderizadas com "lazy loading", o que significa que elas só carregam quando o estão próximas de ficarem
+visíveis na tela do usuário.
+
+Por exemplo, comparando como usar imagens via URL e arquivos de mídia do Starlight:
+
+<Example />
+
+Você pode utilizar o DevTools do seu navegador nas duas imagens acima para ver a diferença entre elas: a primeira,
+renderizada a partir de uma URL, é um elemento `<img>` com atributos simples; a segunda é um elemento `<img>` com uma
+propriedade `srcset`, que permite que o navegador escolha o melhor tamanho de imagem de acordo com o tamanho da sua
+janela.
+
+No exemplo acima, nós criamos nosso próprio objeto de imagem, mas em aplicações de verdade você não precisa fazer isso.
+Esse objeto com informações de uma imagem é retornado pelo Starlight sempre que um modelo utiliza um campo do tipo
+Arquivo de Mídia.
+
+Dito isso, esse é um exemplo de uso mais próximo da realidade:
+
+```jsx
+import Starlight, { ResponsiveImage } from '@starlightcms/react-sdk'
+
+// Assuma que criamos um modelo de postagens de blog que usa o slug "posts",
+// e que criamos um campo de Arquivo de Mídia com a chave "featured_image".
+const EntryComponent = ({ slug }) => {
+  const [entry, setEntry] = useState(null)
+
+  // Esse é apenas um exemplo, você pode requisitar
+  // uma entrada da maneira que preferir.
+  useEffect(async () => {
+    const response = await Starlight.posts.entries.get(slug)
+
+    setEntry(response.data)
+  }, [ slug ])
+
+  // Depois da requisição, a imagem vai estar na propriedade `entry.data.featured_image`.
+  return (
+    entry ? (
+       <article>
+         <h1>{entry.title}</h1>
+         <ResponsiveImage image={entry.data.featured_image} />
+       </article>
+    ) : (
+      <div>Carregando...</div>
+    )
+  )
+}
+```
+
+## Texto alternativo {#alternative-text}
+
+O componente [ResponsiveImage](/api/function/ResponsiveImage) aceita uma propriedade `alt`, que define o atributo de
+mesmo nome do elemento `<img>` renderizado. Por exemplo:
+
+```jsx
+import { ResponsiveImage } from '@starlightcms/react-sdk'
+
+const RenderFeaturedImage = ({ entry }) => {
+  return (
+    <ResponsiveImage
+      image={entry.data.featured_image}
+      alt="Esse é um exemplo de como definir o texto alternativo manualmente."
+    />
+  )
+}
+```
+
+Apesar de que você pode passar essa propriedade manualmente, é mais fácil adicionar texto alternativo no arquivo de
+mídia diretamente na interface do Starlight. Você pode fazer isso após fazer o upload de qualquer imagem. O texto
+alternativo, caso seja definido, será adicionado à tag `<img>` automaticamente.
+
+Caso você passe a propriedade `alt` para esse componente, o valor passado irá sobrescrever o texto definido
+na interface do Starlight.
+
+## Variações {#variations}
+
+Ao fazer upload de um arquivo de imagem no Starlight, algumas variações dessa imagens são geradas. Por exemplo, duas
+variações sempre são criadas: `original`, que é a imagem originalmente enviada, e `optimized`, que é uma variação
+otimizada automaticamente pelo Starlight. Dependendo da resolução da imagem, outras variações podem ser criadas, como
+`large`, `medium` e `thumbnail`.
+
+Essas variações são utilizadas para criar o atributo `srcset` na imagem renderizada. Esse processo é automático e você
+não precisa fazer nada para configurar isso.
+
+## Responsividade {#responsiveness}
+
+A seção [Variações](#variations) acima detalha como o componente [ResponsiveImage](/api/function/ResponsiveImage) cria
+o atributo `srcset`. Porém, para esse atributo funcionar da melhor maneira, você precisa definir a propriedade `sizes`.
+
+Você pode dar uma olhada na [página sobre imagens responsivas no MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#resolution_switching_different_sizes)
+para saber mais sobre como escrever o conteúdo da propriedade `sizes`. Depois disso, definir a propriedade é simples:
+
+```jsx
+import { ResponsiveImage } from '@starlightcms/react-sdk'
+
+const RenderFeaturedImage = ({ entry }) => {
+  return (
+    <ResponsiveImage
+      image={entry.data.featured_image}
+      // O valor da propriedade sizes depende do layout do seu site! Esse é apenas um exemplo.
+      sizes="(max-width: 320px) 90vw, (max-width: 900px) 300px, 500px"
+    />
+  )
+}
+```
+
+## Lazy loading {#lazy-loading}
+
+As imagens renderizadas pelo componente [ResponsiveImage](/api/function/ResponsiveImage) carregam dinamicamente
+dependendo se elas estão visíveis na tela do usuário ou não. Essa técnica é chamada de
+[lazy loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading).
+
+Você não precisa fazer nada para o lazy loading funcionar, mas há algumas propriedades que configuram esse comportamento.
+
+### Estilos CSS
+
+Em navegadores antigos, ou quando o usuário desabilita o JavaScript no seu navegador, o lazy loading pode não funcionar.
+Quando isso acontece, o navegador renderiza a imagem duas vezes. Isso acontece porque o componente
+[ResponsiveImage](/api/function/ResponsiveImage) renderiza duas imagens: uma para navegadores com JavaScript ativado, e
+uma para navegadores com JavaScript desabilitado.
+
+Para prevenir esse problema, você pode utilizar o componente [GlobalLazyloadStyles](/api/function/GlobalLazyloadStyles),
+que adiciona estilos CSS que escondem uma das imagens caso o JavaScript não esteja ativado. Você só precisa renderizar
+esse componente uma vez na sua aplicação. Você pode renderizar esse componente onde preferir,
+mas o ideal é inseri-lo na tag `<head>`:
+
+```jsx
+// src/MyApp.js
+import { GlobalLazyloadStyles } from '@starlightcms/react-sdk'
+import { Helmet } from 'react-helmet'
+import { Routes, Route } from 'react-router-dom'
+
+// Nesse exemplo, usamos o react-helmet para
+// inserir nossos estilos no <head> da nossa aplicação.
+const MyApp = () => {
+  return (
+    <>
+      <Helmet>
+        <GlobalLazyloadStyles />
+      </Helmet>
+      <Routes>
+        <Route path={...} element={...}/>
+        ...
+      </Routes>
+    </>
+  )
+}
+```
+
+### Cor de fundo
+
+Antes que a imagem tenha oportunidade de carregar, uma cor sólida é exibida em seu lugar. Isso previne que a imagem
+"pisque" e mude o layout da página após o carregamento. No caso de imagens renderizadas a partir de arquivos de mídia
+do Starlight, a cor utilizada é automaticamente selecionada.
+
+Caso você renderize uma imagem a partir de uma URL, ou apenas queira que uma cor específica seja utilizada, você pode
+passar a propriedade `background` com qualquer cor aceita pelo CSS, como `#00aaf2` ou `transparent`. Por exemplo:
+
+```jsx
+import { ResponsiveImage } from '@starlightcms/react-sdk'
+
+const RenderFeaturedImage = ({ entry }) => {
+  return (
+    <ResponsiveImage
+      image={entry.data.featured_image}
+      background="#f48d33"
+    />
+  )
+}
+```
+
+### Elemento raíz {#root-element}
+
+O processo de lazy loading funciona ao observar o scroll do elemento raíz da página atual: quando o usuário navega pela
+página e uma imagem começa a ficar visível, ela será carregada. O elemento raíz, por padrão, é o elemento `<html>`.
+
+Porém, quando uma imagem é inserida dentro de outro elemento com scroll, o elemento raíz padrão não carrega a imagem
+quando ela se torna visível. Isso acontece porque apenas o elemento pai com scroll mais próximo consegue observar se
+seus descendentes estão visíveis ou não.
+
+Esse comportamento é comum em carrosséis, já que o carrossel em si geralmente é um elemento com scroll próprio. Nesse
+caso, para o lazy loading funcionar, você precisa definir qual elemento deve observar seus descendentes.
+
+Você pode definir a propriedade `lazyRoot` para isso. Ela aceita um elemento HTML, que terá seu scroll observado. Você
+pode usar uma [referência do React](https://reactjs.org/docs/hooks-reference.html#useref) para passar essa referência
+para o componente:
+
+```jsx
+import { useRef } from 'react'
+import { Slider, Slide } from 'example-slider'
+import { ResponsiveImage } from '@starlightcms/react-sdk'
+
+const CarouselExample = () => {
+  const sliderRef = useRef()
+
+  return (
+    // A maioria das bibliotecas de carrossel
+    // dão suporte para referências.
+    <Slider ref={sliderRef}>
+      <Slide>
+        <ResponsiveImage image={...} lazyRoot={sliderRef} />
+      </Slide>
+      <Slide>
+        <ResponsiveImage image={...} lazyRoot={sliderRef} />
+      </Slide>
+      ...
+    </Slider>
+  )
+}
+```
+
+Dessa maneira, o componente vai saber qual elemento deve observar, e as imagens devem carregar normalmente.
+
+### Margem para carregamento {#load-margin}
+
+Por padrão, o componente [ResponsiveImage](/api/function/ResponsiveImage) carrega imagens que estão fora da tela caso
+elas estejam a menos de 200px de distância da borda da tela. Isso significa que imagens são carregadas um pouco antes
+de ficarem visíveis, o que provê um pouco de tempo para o navegador carregar a imagem,
+dependendo do quão rápido o usuário estiver navegando pela página.
+
+Você pode alterar esse valor definindo a propriedade `lazyRootMargin`. Você pode passar uma string com um número
+positivo seguido de "px". Por exemplo:
+
+```jsx
+import { ResponsiveImage } from '@starlightcms/react-sdk'
+
+const RenderFeaturedImage = ({ entry }) => {
+  return (
+    <ResponsiveImage
+      image={entry.data.featured_image}
+      // Carregar imagens quando estiverem a menos de 500px de distância da borda da tela.
+      lazyRootMargin="500px"
+    />
+  )
+}
+```
+
+Você também pode passar o valor `'0px'`, o que fará com que o carregamento da imagem só aconteça quando ela realmente
+começar a ficar visível na página.

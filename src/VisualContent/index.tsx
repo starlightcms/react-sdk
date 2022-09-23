@@ -134,6 +134,6 @@ export {
   Image as ImageComponent,
   HTML as HTMLComponent,
   List as ListComponent,
-  VisualContentProps,
-  ImageOptions,
 }
+
+export type { VisualContentProps, ImageOptions }

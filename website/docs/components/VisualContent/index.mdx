@@ -38,7 +38,7 @@ const EntryComponent = ({ slug }) => {
     setEntry(response.data)
   }, [ slug ])
 
-  // Depois de requisitado, o conteúdo vai estar na propriedade `entry.data.post_content`.
+  // Depois da requisição, o conteúdo vai estar na propriedade `entry.data.post_content`.
   return (
     entry ? (
        <article>
@@ -88,7 +88,6 @@ const MyApp = () => {
     </>
   )
 }
-
 ```
 
 ## Resumindo o conteúdo {#content-excerpts}
