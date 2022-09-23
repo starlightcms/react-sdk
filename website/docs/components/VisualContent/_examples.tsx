@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  ListComponent,
-  VisualContent,
-  VisualData,
-} from '@starlightcms/react-sdk'
+import { ListComponent, VisualContent, VisualData } from '../../../../src'
 import CodeBlock from '@theme/CodeBlock'
 import styles from './index.module.scss'
 
