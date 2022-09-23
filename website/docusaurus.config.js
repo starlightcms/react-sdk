@@ -13,7 +13,7 @@ const config = {
   tagline: 'Documentação oficial do Starlight SDK para React',
   url: 'https://react.sdk.starlight.sh',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -47,10 +47,11 @@ const config = {
             'https://github.com/starlightcms/react-sdk/tree/main/website/',
           remarkPlugins: [[rehypeJargon, { jargon }]],
         },
-        blog: {
-          showReadingTime: true,
-          blogSidebarTitle: 'Posts recentes',
-        },
+        blog: false,
+        // blog: {
+        //   showReadingTime: true,
+        //   blogSidebarTitle: 'Posts recentes',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -79,7 +80,7 @@ const config = {
             label: 'API',
             position: 'left',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/starlightcms/react-sdk',
             label: 'GitHub',
@@ -101,10 +102,10 @@ const config = {
                 label: 'API',
                 to: '/api',
               },
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
             ],
           },
           {
