@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "@starlightcms/js-sdk": "^0.12.1"
+    "@starlightcms/js-sdk": "^0.13.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0"

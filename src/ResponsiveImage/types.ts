@@ -21,8 +21,8 @@ export interface ResponsiveImageProps {
   sizes?: string
   /**
    * Alternate text description of the image. If set and the given image is a
-   * Starlight media object, it will overwrite this image's alternative text
-   * set in Starlight.
+   * Starlight media object, it will be used in place of the image's
+   * alternative text set in Starlight.
    */
   alt?: string
   /**
