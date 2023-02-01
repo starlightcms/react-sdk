@@ -41,7 +41,7 @@ const response = Starlight.posts.entries.list()
 const response = Starlight.posts.entries.get('hello-world')
 
 // Rendering visual editor content:
-<VisualContent content={respnse.data.data.content} />
+<VisualContent content={response.data.data.content} />
 ```
 
 The SDK is capable of requesting a myriad of different content from your workspaces. Check out 
