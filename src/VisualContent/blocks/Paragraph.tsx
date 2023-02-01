@@ -3,7 +3,8 @@ import { ParagraphBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 
 /**
  * VisualContent renderer component that renders `paragraph` type blocks
- * as `<p>` elements.
+ * as `<p>` elements. Empty paragraph blocks (generally used to break
+ * lines) will have an `empty` class added to them.
  *
  * See {@doclink components/VisualContent/#customizing-components | the guide page on the VisualContent component}
  * to learn how to customize block renderer components like this one.
@@ -13,6 +14,13 @@ import { ParagraphBlock, VisualDataBlock } from '@starlightcms/js-sdk'
  * @group VisualContent Renderers
  */
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
+  if (!data.text)
+    return (
+      <p className="sl-content-block sl-paragraph empty" aria-hidden>
+        <br />
+      </p>
+    )
+
   return (
     <p
       className="sl-content-block sl-paragraph"

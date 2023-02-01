@@ -1,6 +1,6 @@
 {
   "name": "@starlightcms/react-sdk",
-  "version": "0.11.0",
+  "version": "1.0.0",
   "description": "The Starlight SDK for React",
   "workspaces": [
     "website"
@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "@starlightcms/js-sdk": "^0.13.1"
+    "@starlightcms/js-sdk": "^1.0.0"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
