@@ -85,11 +85,13 @@ export const VisualContent = ({
   }
 
   if (excerpt) {
-    const block = content.blocks.find((block) => block.type === 'paragraph')
+    const block = content.blocks.find((block) => block.type === 'paragraph') as
+      | VisualDataBlock<ParagraphBlock>
+      | undefined
 
-    if (!block) return null as unknown as JSX.Element
+    if (!block || !block.data.text) return null as unknown as JSX.Element
 
-    const text = (block as VisualDataBlock<ParagraphBlock>).data.text.split(' ')
+    const text = block.data.text.split(' ')
     const excerptText =
       text.length > excerptLength
         ? text.splice(0, excerptLength).join(' ') + '...'
@@ -105,7 +107,6 @@ export const VisualContent = ({
       />
     )
   }
-
   return (
     <div className="sl-visual-content">
       {content.blocks.map((block) => {
