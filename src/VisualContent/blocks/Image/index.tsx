@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react'
 import { ImageBlock, VisualDataBlock } from '@starlightcms/js-sdk'
+import React, { FC, useEffect, useState } from 'react'
+import { ImageWrapper, SelectedImage } from './styles'
 
 /**
  * Type used by {@link ImageComponent} to accept a `sizes` prop.
@@ -29,7 +30,7 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   data,
   sizes = '(max-width: 480px) 90vw, 70vw',
 }) => {
-  const { url, files, alt = '', caption, href } = data
+  const { url, files, alt = '', caption, width, href } = data
   const [target, setTarget] = useState('_self')
   const [srcSet, setSrcSet] = useState('')
 
@@ -41,17 +42,18 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
     )
   }, [href])
 
-  useEffect(() => {
-    if (!files || !files.length) return
+  // useEffect(() => {
+  //   if (!files || !files.length) return
 
-    setSrcSet(files.map((file) => `${file.url} ${file.width}w`).join(', '))
-  }, [files])
+  //   setSrcSet(files.map((file) => `${file.url} ${file.width}w`).join(', '))
+  // }, [files])
 
   return (
-    <figure>
+    <ImageWrapper>
       {href ? (
         <a href={href} target={target}>
-          <img
+          <SelectedImage
+            width={width}
             className="sl-content-block sl-image"
             src={url}
             alt={alt}
@@ -60,7 +62,8 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
           />
         </a>
       ) : (
-        <img
+        <SelectedImage
+          width={width}
           className="sl-content-block sl-image"
           src={url}
           alt={alt}
@@ -69,7 +72,7 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
         />
       )}
       {caption && <figcaption dangerouslySetInnerHTML={{ __html: caption }} />}
-    </figure>
+    </ImageWrapper>
   )
 }
 
