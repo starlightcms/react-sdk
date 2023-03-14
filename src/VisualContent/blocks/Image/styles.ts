@@ -4,7 +4,7 @@ export const ImageWrapper = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  margin: 1em auto;
 
   > a {
     width: 100%;
@@ -16,10 +16,11 @@ type ImageProps = {
 }
 
 export const SelectedImage = styled.img<ImageProps>`
+  display: block;
   border-radius: 5px;
   object-fit: cover;
 
-  max-width: ${({ width }) => (width === 'auto' ? '100%' : 'initial')};
+  max-width: 100%;
 
   width: ${({ width }) => {
     switch (width) {

@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
 import { ParagraphBlock, VisualDataBlock } from '@starlightcms/js-sdk'
+import { BlockWrapper } from '../styles'
+import React, { FC } from 'react'
 
 /**
  * VisualContent renderer component that renders `paragraph` type blocks
@@ -16,16 +17,20 @@ import { ParagraphBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
   if (!data.text)
     return (
-      <p className="sl-content-block sl-paragraph empty" aria-hidden>
-        <br />
-      </p>
+      <BlockWrapper>
+        <p className="sl-content-block sl-paragraph empty" aria-hidden>
+          <br />
+        </p>
+      </BlockWrapper>
     )
 
   return (
-    <p
-      className="sl-content-block sl-paragraph"
-      dangerouslySetInnerHTML={{ __html: data.text }}
-    />
+    <BlockWrapper>
+      <p
+        className="sl-content-block sl-paragraph"
+        dangerouslySetInnerHTML={{ __html: data.text }}
+      />
+    </BlockWrapper>
   )
 }
 

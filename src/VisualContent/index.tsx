@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react'
 import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
-import { VisualContentStyles } from './styles'
+import Image, { ImageOptions } from './blocks/Image'
 import Paragraph from './blocks/Paragraph'
+import { OuterWrapper } from './styles'
+import React, { useMemo } from 'react'
 import Header from './blocks/Header'
 import Quote from './blocks/Quote'
-import Image, { ImageOptions } from './blocks/Image'
 import HTML from './blocks/HTML'
 import List from './blocks/List'
 
@@ -108,7 +108,7 @@ export const VisualContent = ({
     )
   }
   return (
-    <div className="sl-visual-content">
+    <OuterWrapper className="sl-visual-content">
       {content.blocks.map((block) => {
         const Component = componentList[block.type]
 
@@ -123,12 +123,11 @@ export const VisualContent = ({
           />
         )
       })}
-    </div>
+    </OuterWrapper>
   )
 }
 
 export {
-  VisualContentStyles,
   Paragraph as ParagraphComponent,
   Header as HeaderComponent,
   Quote as QuoteComponent,

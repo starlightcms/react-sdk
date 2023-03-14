@@ -1,6 +1,7 @@
 import { ImageBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 import React, { FC, useEffect, useState } from 'react'
 import { ImageWrapper, SelectedImage } from './styles'
+import { BlockWrapper } from '../../styles'
 
 /**
  * Type used by {@link ImageComponent} to accept a `sizes` prop.
@@ -49,9 +50,20 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   // }, [files])
 
   return (
-    <ImageWrapper>
-      {href ? (
-        <a href={href} target={target}>
+    <BlockWrapper isStretched={width === 'max'}>
+      <ImageWrapper>
+        {href ? (
+          <a href={href} target={target}>
+            <SelectedImage
+              width={width}
+              className="sl-content-block sl-image"
+              src={url}
+              alt={alt}
+              srcSet={srcSet}
+              sizes={srcSet ? sizes : undefined}
+            />
+          </a>
+        ) : (
           <SelectedImage
             width={width}
             className="sl-content-block sl-image"
@@ -60,19 +72,12 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
             srcSet={srcSet}
             sizes={srcSet ? sizes : undefined}
           />
-        </a>
-      ) : (
-        <SelectedImage
-          width={width}
-          className="sl-content-block sl-image"
-          src={url}
-          alt={alt}
-          srcSet={srcSet}
-          sizes={srcSet ? sizes : undefined}
-        />
-      )}
-      {caption && <figcaption dangerouslySetInnerHTML={{ __html: caption }} />}
-    </ImageWrapper>
+        )}
+        {caption && (
+          <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
+        )}
+      </ImageWrapper>
+    </BlockWrapper>
   )
 }
 
