@@ -1,14 +1,8 @@
-import { FigureBlockWrapper } from '../../styles'
+import { FigureWrapper } from '../../styles'
 import styled from '@emotion/styled'
 
-export const ImageWrapper = styled(FigureBlockWrapper)`
+export const ImageWrapper = styled(FigureWrapper)`
   margin: 1em auto;
-
-  > a {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
 `
 
 type ImageProps = {
@@ -17,6 +11,7 @@ type ImageProps = {
 
 export const SelectedImage = styled.img<ImageProps>`
   display: block;
+  margin: auto;
   border-radius: 5px;
   object-fit: cover;
 

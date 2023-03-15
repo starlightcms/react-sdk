@@ -1,11 +1,11 @@
-import { FigureBlockWrapper } from '../../styles'
+import { FigureWrapper } from '../../styles'
 import styled from '@emotion/styled'
 
 type VideoWrapperProps = {
   width: string | null
 }
 
-export const VideoWrapper = styled(FigureBlockWrapper)<VideoWrapperProps>`
+export const VideoWrapper = styled(FigureWrapper)<VideoWrapperProps>`
   margin: 0;
 
   > div {
@@ -14,6 +14,9 @@ export const VideoWrapper = styled(FigureBlockWrapper)<VideoWrapperProps>`
     }
 
     > iframe {
+      display: block;
+      margin: auto;
+
       aspect-ratio: 16/9;
 
       border-radius: 5px;
