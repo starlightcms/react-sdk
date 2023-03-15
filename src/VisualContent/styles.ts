@@ -75,3 +75,16 @@ export const BlockWrapper = styled.div<BlockWrapperProps>`
   margin: auto;
   ${({ isStretched }) => isStretched && 'max-width: 100%;'}
 `
+
+export const FigureBlockWrapper = styled.figure`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  figcaption {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+`

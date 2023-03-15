@@ -1,12 +1,12 @@
+import { FigureBlockWrapper } from '../../styles'
 import styled from '@emotion/styled'
 
-export const ImageWrapper = styled.figure`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ImageWrapper = styled(FigureBlockWrapper)`
   margin: 1em auto;
 
   > a {
+    display: flex;
+    justify-content: center;
     width: 100%;
   }
 `

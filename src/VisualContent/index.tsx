@@ -8,6 +8,7 @@ import Header from './blocks/Header'
 import Quote from './blocks/Quote'
 import HTML from './blocks/HTML'
 import List from './blocks/List'
+import Video from './blocks/Video'
 
 const defaultComponents: BlockComponents = {
   paragraph: Paragraph,
@@ -16,6 +17,7 @@ const defaultComponents: BlockComponents = {
   image: Image,
   raw: HTML,
   list: List,
+  video: Video,
 }
 
 /**
@@ -134,6 +136,7 @@ export {
   Image as ImageComponent,
   HTML as HTMLComponent,
   List as ListComponent,
+  Video as VideoComponent,
 }
 
 export type { VisualContentProps, ImageOptions }
