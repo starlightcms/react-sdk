@@ -15,8 +15,8 @@ import React, { FC } from 'react'
  */
 const Quote: FC<VisualDataBlock<QuoteBlock>> = ({ data }) => {
   return (
-    <BlockWrapper>
-      <blockquote className="sl-content-block sl-quote">{data.text}</blockquote>
+    <BlockWrapper className="sl-content-block sl-quote">
+      <blockquote>{data.text}</blockquote>
     </BlockWrapper>
   )
 }

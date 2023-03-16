@@ -35,6 +35,8 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   const [target, setTarget] = useState('_self')
   const [srcSet, setSrcSet] = useState('')
 
+  const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
+
   useEffect(() => {
     if (!href) return
 
@@ -50,7 +52,10 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   // }, [files])
 
   return (
-    <BlockWrapper isStretched={width === 'max'}>
+    <BlockWrapper
+      isStretched={width === 'max'}
+      className={`sl-content-block sl-image sl-width-${widthType}`}
+    >
       <ImageWrapper>
         {href ? (
           <a href={href} target={target}>

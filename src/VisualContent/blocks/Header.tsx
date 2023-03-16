@@ -17,7 +17,7 @@ const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
   const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
-    <BlockWrapper>
+    <BlockWrapper className="sl-content-block sl-header">
       <HeaderComponent
         className="sl-content-block sl-header"
         dangerouslySetInnerHTML={{ __html: data.text }}

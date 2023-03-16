@@ -16,7 +16,7 @@ import React, { FC } from 'react'
  */
 const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => {
   return (
-    <BlockWrapper>
+    <BlockWrapper className="sl-content-block sl-html">
       <HTMLWrapper
         className="sl-content-block sl-html"
         dangerouslySetInnerHTML={{ __html: data.html }}

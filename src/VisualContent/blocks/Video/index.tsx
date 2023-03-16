@@ -17,8 +17,13 @@ import React, { FC } from 'react'
 const Video: FC<VisualDataBlock<VideoBlock>> = ({ data }) => {
   const { html, width, caption } = data
 
+  const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
+
   return (
-    <BlockWrapper isStretched={width === 'max'}>
+    <BlockWrapper
+      isStretched={width === 'max'}
+      className={`sl-content-block sl-video sl-width-${widthType}`}
+    >
       <VideoWrapper width={width}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
