@@ -67,13 +67,12 @@ export const OuterWrapper = styled.div`
   }
 `
 
-type BlockWrapperProps = {
-  isStretched?: boolean | null
-}
-
-export const BlockWrapper = styled.div<BlockWrapperProps>`
+export const BlockWrapper = styled.div`
   margin: auto;
-  ${({ isStretched }) => isStretched && 'max-width: 100%;'}
+
+  &.sl-width-max {
+    max-width: 100%;
+  }
 `
 
 export const FigureWrapper = styled.figure`

@@ -52,10 +52,7 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   // }, [files])
 
   return (
-    <BlockWrapper
-      isStretched={width === 'max'}
-      className={`sl-content-block sl-image sl-width-${widthType}`}
-    >
+    <BlockWrapper className={`sl-content-block sl-image sl-width-${widthType}`}>
       <ImageWrapper>
         {href ? (
           <a href={href} target={target}>
