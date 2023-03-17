@@ -19,7 +19,6 @@ export const VideoWrapper = styled(FigureWrapper)<VideoWrapperProps>`
 
       aspect-ratio: 16/9;
 
-      border-radius: 5px;
       border: none;
 
       background-color: transparent;

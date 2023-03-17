@@ -6,13 +6,12 @@ export const ImageWrapper = styled(FigureWrapper)`
 `
 
 type ImageProps = {
-  width: string | null
+  width: string
 }
 
 export const SelectedImage = styled.img<ImageProps>`
   display: block;
   margin: auto;
-  border-radius: 5px;
   object-fit: cover;
 
   max-width: 100%;

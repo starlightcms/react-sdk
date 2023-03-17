@@ -18,10 +18,7 @@ const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
 
   return (
     <BlockWrapper className="sl-content-block sl-header">
-      <HeaderComponent
-        className="sl-content-block sl-header"
-        dangerouslySetInnerHTML={{ __html: data.text }}
-      />
+      <HeaderComponent dangerouslySetInnerHTML={{ __html: data.text }} />
     </BlockWrapper>
   )
 }

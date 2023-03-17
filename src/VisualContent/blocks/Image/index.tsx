@@ -61,7 +61,6 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
           <a href={href} target={target}>
             <SelectedImage
               width={width}
-              className="sl-content-block sl-image"
               src={url}
               alt={alt}
               srcSet={srcSet}
@@ -71,7 +70,6 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
         ) : (
           <SelectedImage
             width={width}
-            className="sl-content-block sl-image"
             src={url}
             alt={alt}
             srcSet={srcSet}

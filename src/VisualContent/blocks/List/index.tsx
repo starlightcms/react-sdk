@@ -40,10 +40,7 @@ const List: FC<VisualDataBlock<ListBlock>> = ({ data }) => {
 
   return (
     <BlockWrapper className="sl-content-block sl-list">
-      <ListWrapper
-        as={listElement}
-        className="sl-content-block sl-list sl-list__root"
-      >
+      <ListWrapper as={listElement} className="sl-list__root">
         {data.items.map((item, index) => (
           <SubList key={index} item={item} Wrapper={listElement} />
         ))}
