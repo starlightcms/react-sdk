@@ -9,6 +9,7 @@ import {
   BlockType,
   HTMLBlock,
   ListBlock,
+  VideoBlock,
 } from '@starlightcms/js-sdk'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,6 +23,7 @@ export interface BlockComponents
   image: ComponentType<VisualDataBlock<ImageBlock>>
   raw: ComponentType<VisualDataBlock<HTMLBlock>>
   list: ComponentType<VisualDataBlock<ListBlock>>
+  video: ComponentType<VisualDataBlock<VideoBlock>>
 }
 
 /**

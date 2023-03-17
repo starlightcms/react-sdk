@@ -1,5 +1,7 @@
-import React, { FC } from 'react'
 import { HTMLBlock, VisualDataBlock } from '@starlightcms/js-sdk'
+import { BlockWrapper } from '../../styles'
+import { HTMLWrapper } from './styles'
+import React, { FC } from 'react'
 
 /**
  * VisualContent renderer component that renders `raw` type blocks
@@ -14,10 +16,9 @@ import { HTMLBlock, VisualDataBlock } from '@starlightcms/js-sdk'
  */
 const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => {
   return (
-    <div
-      className="sl-content-block sl-html test"
-      dangerouslySetInnerHTML={{ __html: data.html }}
-    />
+    <BlockWrapper className="sl-content-block sl-html">
+      <HTMLWrapper dangerouslySetInnerHTML={{ __html: data.html }} />
+    </BlockWrapper>
   )
 }
 

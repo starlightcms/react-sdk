@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
 import { QuoteBlock, VisualDataBlock } from '@starlightcms/js-sdk'
+import { BlockWrapper } from '../styles'
+import React, { FC } from 'react'
 
 /**
  * VisualContent renderer component that renders `quote` type blocks
@@ -14,7 +15,9 @@ import { QuoteBlock, VisualDataBlock } from '@starlightcms/js-sdk'
  */
 const Quote: FC<VisualDataBlock<QuoteBlock>> = ({ data }) => {
   return (
-    <blockquote className="sl-content-block sl-quote">{data.text}</blockquote>
+    <BlockWrapper className="sl-content-block sl-quote">
+      <blockquote>{data.text}</blockquote>
+    </BlockWrapper>
   )
 }
 
