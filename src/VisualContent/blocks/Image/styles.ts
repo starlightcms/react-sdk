@@ -7,6 +7,7 @@ export const ImageWrapper = styled(FigureWrapper)`
 
 type ImageProps = {
   width: string
+  originalWidth?: string | undefined
 }
 
 export const SelectedImage = styled.img<ImageProps>`
@@ -14,7 +15,17 @@ export const SelectedImage = styled.img<ImageProps>`
   margin: auto;
   object-fit: cover;
 
-  max-width: 100%;
+  max-width: ${({ width, originalWidth }) => {
+    if (originalWidth && width === 'auto') return originalWidth
+
+    switch (width) {
+      case 'auto':
+        return '100%'
+      case 'justify':
+      case 'max':
+        return 'initial'
+    }
+  }};
 
   width: ${({ width }) => {
     switch (width) {
