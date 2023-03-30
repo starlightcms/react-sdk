@@ -52,44 +52,6 @@ const EntryComponent = ({ slug }) => {
 }
 ```
 
-## Estilos CSS {#styles}
-
-<APILink href="/api/function/VisualContentStyles" label="Ver VisualContentStyles na API"/>
-
-Por padrão, o componente [VisualContent](#component) não aplica estilos CSS no conteúdo renderizado, mas todos os seus
-blocos contém classes CSS que possibilitam que seus elementos sejam estilizados manualmente. Assim, você pode estilizar
-esses elementos da maneira que preferir.
-
-Para simplificar a estilização, o React SDK provê o componente [VisualContentStyles](/api/function/VisualContentStyles),
-que renderiza uma tag `<style>` com estilos básicos para que o conteúdo renderizado tenha a mesma aparência que no
-editor de conteúdo na interface do Starlight.
-
-Para utilizar esses estilos, você deve renderizar o componente VisualContentStyles apenas uma vez na sua aplicação.
-Você pode renderizar esse componente onde preferir, mas o ideal é inseri-lo na tag `<head>`:
-
-```jsx
-// src/MyApp.js
-import { VisualContentStyles } from '@starlightcms/react-sdk'
-import { Helmet } from 'react-helmet'
-import { Routes, Route } from 'react-router-dom'
-
-// Nesse exemplo, usamos o react-helmet para
-// inserir nossos estilos no <head> da nossa aplicação.
-const MyApp = () => {
-  return (
-    <>
-      <Helmet>
-        <VisualContentStyles />
-      </Helmet>
-      <Routes>
-        <Route path={...} element={...}/>
-        ...
-      </Routes>
-    </>
-  )
-}
-```
-
 ## Resumindo o conteúdo {#content-excerpts}
 
 O componente [VisualContent](#component) suporta a propriedade `excerpt` que, se passada, limita o conteúdo renderizado
@@ -140,16 +102,52 @@ da tabela abaixo para saber quais dados a propriedade `data` terá para seu resp
 Na quarta coluna, você pode ver qual componente do SDK renderiza esse tipo de bloco por padrão, o que pode ser útil
 para servir de referência na hora de implementar um componente customizado.
 
+### Classes CSS {#css-classes}
+
+| Classe CSS             | Descrição                                                                                                                                         |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `sl-visual-content`    | Utilizada pelo elemento que envolve todos os componentes da página                                                                                |
+| `sl-content-block`     | Utilizada por cada um dos elementos que envolvem cada um dos blocos (ver seção de [Blocos suportados](#supported-blocks))                         |
+| `sl-header`            | Utilizada pelo elemento que envolve um bloco de cabeçalho                                                                                         |
+| `sl-quote`             | Utilizada pelo elemento que envolve um bloco de citação                                                                                           |
+| `sl-html`              | Utilizada pelo elemento que envolve um bloco de HTML                                                                                              |
+| `sl-image`             | Utilizada pelo elemento que envolve um bloco de imagem                                                                                            |
+| `sl-list`              | Utilizada pelo elemento que envolve um bloco de lista                                                                                             |
+| `sl-list__root`        | Utilizada pelo elemento do bloco de lista                                                                                                         |
+| `sl-paragraph`         | Utilizada pelo elemento que envolve um bloco de parágrafo                                                                                         |
+| `empty`                | Utilizada pelo elemento que envolve um bloco de parágrafo vazio                                                                                   |
+| `sl-video`             | Utilizada pelo elemento que envolve um bloco de vídeo                                                                                             |
+| `sl-width-fixed`       | Utilizada pelos elementos que envolvem um bloco de imagem ou vídeo cuja largura é fixa (definida pelio usuário)                                   |
+| `sl-width-auto`        | Utilizada pelos elementos que envolvem um bloco de imagem ou vídeo cuja largura é definida automaticamente (vira a largura inicial da imagem)     |
+| `sl-width-justify`     | Utilizada pelos elementos que envolvem um bloco de imagem ou vídeo cuja largura é justificada ao texto (ou seja, terá a mesma largura do texto)   |
+| `sl-width-max`         | Utilizada pelos elementos que envolvem um bloco de imagem ou vídeo cuja largura é máxima (a maior possível)                                       |
+
 ### Blocos suportados {#supported-blocks}
 
 | Nome do bloco | Tipo        | Dados recebidos pelo componente                 | Componente padrão                                      |
 |---------------|-------------|-------------------------------------------------|--------------------------------------------------------|
 | Cabeçalho     | `header`    | [HeaderBlock](/api/interface/HeaderBlock)       | [HeaderComponent](/api/function/HeaderComponent)       |
-| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
-| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
 | Citação       | `quote`     | [QuoteBlock](/api/interface/QuoteBlock)         | [QuoteComponent](/api/function/QuoteComponent)         |
-| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
 | HTML          | `raw`       | [HTMLBlock](/api/interface/HTMLBlock)           | [HTMLComponent](/api/function/HTMLComponent)           |
+| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
+| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
+| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
+| Vídeo         | `video`     | [VideoBlock](/api/interface/VideoBlock)         | [VideoComponent](/api/function/VideoComponent)         |
+
+### Largura dos blocos {#block-width}
+
+A largura dos blocos dentro de um Visual Editor pode ser facilmente controlada por meio da interface do Starlight.
+Nela, o usuário pode escolher dentre 4 tipos de largura: fixa, automática, justificada e máxima. 
+
+Na fixa, o usuário define manualmente a largura do bloco em pixels ou porcentagem do tamanho total do conteúdo. Na 
+automática, a largura do bloco é definida como a largura original do bloco (por exemplo, se uma imagem tiver 200 pixels 
+de largura, a largura será definida como 200 pixels). Na justificada, a largura é definida como a mesma largura do texto. 
+Já na máxima, a largura será a maior possível, porém o desenvolvedor terá de criar CSS adicional para que esta largura
+funcione como esperado.
+
+#### Largura máxima {#max-width}
+
+
 
 ### Imagens responsivas {#responsive-images}
 
