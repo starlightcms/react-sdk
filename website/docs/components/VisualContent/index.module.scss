@@ -29,3 +29,20 @@
     background-color: #282A36;
   }
 }
+
+.maxWidthExamples {
+  display: flex;
+  gap: 20px;
+
+  > div {
+    width: 50%
+  }
+
+  @media screen and (max-width: 599px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%
+    }
+  }
+}

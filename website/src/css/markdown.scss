@@ -1,0 +1,30 @@
+/* MDX styles */
+.markdown {
+  /* Figure with images and optional caption */
+  > figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 1rem;
+
+    > p,
+    > div,
+    > img {
+      margin: 0 0 1rem;
+    }
+
+    > figcaption {
+      margin: 0.5rem 0;
+      text-align: center;
+      font: var(--sl-font-paragraph-small);
+      color: var(--sl-color-gray-600);
+    }
+
+    img {
+      display: block;
+      border: 0.0625rem solid var(--sl-color-gray-300);
+      border-radius: 0.5rem;
+      box-shadow: 0 3px 8px -5px hsla(215, 12%, 35%, 0.42);
+    }
+  }
+}

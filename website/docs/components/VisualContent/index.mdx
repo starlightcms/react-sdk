@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 import { Example, ExcerptExample, CustomExample } from './_examples'
+import CodeBlock from '@theme/CodeBlock'
+import styles from './index.module.scss'
 
 # VisualContent
 
@@ -136,8 +138,9 @@ para servir de referência na hora de implementar um componente customizado.
 
 ### Largura dos blocos {#block-width}
 
-A largura dos blocos dentro de um Visual Editor pode ser facilmente controlada por meio da interface do Starlight.
-Nela, o usuário pode escolher dentre 4 tipos de largura: fixa, automática, justificada e máxima. 
+Por padrão, os blocos de conteúdo utilizam todo o espaço horizontal disponibilizado pelo elemento pai do VisualContent, 
+e a largura dos blocos dentro de um Visual Editor pode ser facilmente controlada por meio da interface do Starlight. Nela, 
+o usuário pode escolher dentre 4 tipos de largura: fixa, automática, justificada e máxima. 
 
 Na fixa, o usuário define manualmente a largura do bloco em pixels ou porcentagem do tamanho total do conteúdo. Na 
 automática, a largura do bloco é definida como a largura original do bloco (por exemplo, se uma imagem tiver 200 pixels 
@@ -147,6 +150,56 @@ funcione como esperado.
 
 #### Largura máxima {#max-width}
 
+Os blocos podem ter naturalmente uma largura limite, se você assim projetar. Abaixo há um pequeno exemplo de código que 
+limita a largura desses blocos a 500 pixels:
+
+```css
+.sl-content-block {
+  max-width: 500px;
+}
+```
+
+Contudo, blocos com largura máxima sempre utilizarão 100% do espaço disponível, independente do limite definido. Dessa 
+maneira, você pode criar um design onde blocos com largura máxima ocuparão 100% da largura da tela.
+
+Digamos que você tenha um blog onde o conteúdo das postagens é centralizado na página e você quer que a largura de certos 
+blocos (como algumas imagens) exceda a largura a padrão do conteúdo para efeito de ênfase.
+
+<figure>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcSet={require("./assets/_beforeafterdark.png").default} />
+    <source media="(prefers-color-scheme: light)" srcSet={require("./assets/_beforeafterlight.png").default} />
+    <IdealImage img={require('./assets/_beforeafterlight.png')} />
+  </ picture>
+  <figcaption>Depois da atualização, os blocos de conteúdo continuam tendo uma largura definida, mas os blocos que têm largura máxima ocupam todo o espaço disponível na tela.</figcaption>
+</ figure>
+
+
+No exemplo do blog, digamos que o elemento de classe `.parent-component` tenha uma largura de 1000 pixels - isso é
+representado pelo "antes" na imagem acima e no código abaixo. Para atualizar a largura do conteúdo, você deve definir a largura do 
+elemento de classe `.parent-component` como 100% da largura da tela (por exemplo) e a largura do elemento de classe 
+`.sl-content-block` como 1000 pixels:
+
+<div className={styles.maxWidthExamples}>
+  <div>
+    <CodeBlock language="css" title="Antes" >
+{`.parent-component {
+  width: 1000px;
+}`}
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock language="css" title="Depois" >
+      {`.parent-component {
+  width: 100%;
+}
+      
+.sl-content-block {
+  max-width: 1000px;
+}`}
+    </CodeBlock>
+  </div>
+</div>
 
 
 ### Imagens responsivas {#responsive-images}
