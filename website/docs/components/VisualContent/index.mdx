@@ -1,20 +1,22 @@
 ---
 sidebar_position: 1
 ---
-import { Example, ExcerptExample, CustomExample } from './_examples'
+import { Example, ExcerptExample, CustomExample, afterWidthExample, beforeWidthExample } from './_examples'
+import CodeBlock from '@theme/CodeBlock'
+import styles from './index.module.scss'
 
 # VisualContent
 
 ## Componente {#component}
 
-<APILink href="/api/function/VisualContent" />
+<APILink href="/api/function/VisualContent"/>
 
 O componente [VisualContent](/api/function/VisualContent) renderiza conteúdo de um campo de Editor Visual do Starlight
 em HTML.
 
 Para fins ilustrativos, esse é um exemplo de um conteúdo básico renderizado nessa página:
 
-<Example />
+<Example/>
 
 Nós escrevemos nosso próprio objeto `content` nesse exemplo, mas em aplicações de verdade você não precisa fazer isso.
 Esse objeto com informações de conteúdo é retornado pelo Starlight sempre que um modelo utiliza um campo do
@@ -52,44 +54,6 @@ const EntryComponent = ({ slug }) => {
 }
 ```
 
-## Estilos CSS {#styles}
-
-<APILink href="/api/function/VisualContentStyles" label="Ver VisualContentStyles na API"/>
-
-Por padrão, o componente [VisualContent](#component) não aplica estilos CSS no conteúdo renderizado, mas todos os seus
-blocos contém classes CSS que possibilitam que seus elementos sejam estilizados manualmente. Assim, você pode estilizar
-esses elementos da maneira que preferir.
-
-Para simplificar a estilização, o React SDK provê o componente [VisualContentStyles](/api/function/VisualContentStyles),
-que renderiza uma tag `<style>` com estilos básicos para que o conteúdo renderizado tenha a mesma aparência que no
-editor de conteúdo na interface do Starlight.
-
-Para utilizar esses estilos, você deve renderizar o componente VisualContentStyles apenas uma vez na sua aplicação.
-Você pode renderizar esse componente onde preferir, mas o ideal é inseri-lo na tag `<head>`:
-
-```jsx
-// src/MyApp.js
-import { VisualContentStyles } from '@starlightcms/react-sdk'
-import { Helmet } from 'react-helmet'
-import { Routes, Route } from 'react-router-dom'
-
-// Nesse exemplo, usamos o react-helmet para
-// inserir nossos estilos no <head> da nossa aplicação.
-const MyApp = () => {
-  return (
-    <>
-      <Helmet>
-        <VisualContentStyles />
-      </Helmet>
-      <Routes>
-        <Route path={...} element={...}/>
-        ...
-      </Routes>
-    </>
-  )
-}
-```
-
 ## Resumindo o conteúdo {#content-excerpts}
 
 O componente [VisualContent](#component) suporta a propriedade `excerpt` que, se passada, limita o conteúdo renderizado
@@ -102,7 +66,7 @@ e termina em reticências (...).
 
 Para exemplificar, vamos reutilizar o exemplo no início dessa página:
 
-<ExcerptExample />
+<ExcerptExample/>
 
 Note que, no exemplo acima, o cabeçalho "Olá, mundo! 😃" não foi renderizado. Isso acontece porque, ao passar a
 propriedade `excerpt`, o componente renderiza apenas blocos de parágrafo, ignorando todo o resto, como cabeçalhos,
@@ -121,7 +85,7 @@ isso.
 No exemplo abaixo, vamos renderizar listas ordenadas como texto simples separado por vírgulas, mas vamos
 renderizar listas sem ordem sem alterações, utilizando o componente original:
 
-<CustomExample />
+<CustomExample/>
 
 Todos os componentes que renderizam blocos podem ser personalizados, e os tipos de bloco suportados estão listados na
 tabela abaixo. Para substituir um componente, passe um objeto para a propriedade `components` onde cada chave é um tipo
@@ -142,14 +106,152 @@ para servir de referência na hora de implementar um componente customizado.
 
 ### Blocos suportados {#supported-blocks}
 
+O `VisualContent` suporta os seguintes tipos de bloco:
+
 | Nome do bloco | Tipo        | Dados recebidos pelo componente                 | Componente padrão                                      |
 |---------------|-------------|-------------------------------------------------|--------------------------------------------------------|
 | Cabeçalho     | `header`    | [HeaderBlock](/api/interface/HeaderBlock)       | [HeaderComponent](/api/function/HeaderComponent)       |
-| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
-| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
 | Citação       | `quote`     | [QuoteBlock](/api/interface/QuoteBlock)         | [QuoteComponent](/api/function/QuoteComponent)         |
-| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
 | HTML          | `raw`       | [HTMLBlock](/api/interface/HTMLBlock)           | [HTMLComponent](/api/function/HTMLComponent)           |
+| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
+| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
+| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
+| Vídeo         | `video`     | [VideoBlock](/api/interface/VideoBlock)         | [VideoComponent](/api/function/VideoComponent)         |
+
+Para criar componentes personalizados, sugerimos que você copie o código-fonte do bloco padrão que deseja personalizar
+e faça as alterações que desejar a partir disso. Você pode visualizar o
+[código-fonte dos blocos padrões no GitHub](https://github.com/starlightcms/react-sdk/tree/main/src/VisualContent/blocks).
+
+### Classes CSS {#css-classes}
+
+Todos os elementos renderizados pelos componentes de bloco padrões do `VisualContent` contém classes CSS que podem ser
+utilizadas para estilizar seus conteúdos sem a necessidade de criar um componente personalizado.
+
+Por exemplo, se você quer fazer uma alteração simples de design, como adicionar bordas arrendondadas nos blocos de
+imagem, é possível fazê-la utilizando apenas CSS:
+
+```css
+.sl-image img {
+    border-radius: 10px;
+}
+```
+
+Assim, você não precisa criar um componente personalizado para blocos de imagem para chegar no design desejado.
+
+As classes CSS usadas pelos componentes padrões do `VisualContent` são as seguintes:
+
+<div className={styles.classTable}>
+
+  | Classe CSS          |                     Utilizada por                      | Descrição                                                                |
+  |---------------------|:------------------------------------------------------:|--------------------------------------------------------------------------|
+  | `sl-visual-content` |                    `VisualContent`                     | Elemento raíz que envolve todo o conteúdo.                               |
+  | `sl-content-block`  |                    Todos os blocos                     | Elemento que envolve o conteúdo de um bloco.                             |
+  | `sl-header`         |    [HeaderComponent](/api/function/HeaderComponent)    | Elemento que envolve um bloco de cabeçalho.                              |
+  | `sl-quote`          |     [QuoteComponent](/api/function/QuoteComponent)     | Elemento que envolve um bloco de citação.                                |
+  | `sl-html`           |      [HTMLComponent](/api/function/HTMLComponent)      | Elemento que envolve um bloco de HTML.                                   |
+  | `sl-image`          |     [ImageComponent](/api/function/ImageComponent)     | Elemento que envolve um bloco de imagem.                                 |
+  | `sl-list`           |      [ListComponent](/api/function/ListComponent)      | Elemento que envolve um bloco de lista.                                  |
+  | `sl-list__root`     |      [ListComponent](/api/function/ListComponent)      | Elemento que envolve a primeira lista (a lista raíz) do bloco de lista.  |
+  | `sl-paragraph`      | [ParagraphComponent](/api/function/ParagraphComponent) | Elemento que envolve um bloco de parágrafo.                              |
+  | `empty`             | [ParagraphComponent](/api/function/ParagraphComponent) | Elemento que envolve um bloco de parágrafo vazio (sem conteúdo).         |
+  | `sl-video`          |     [VideoComponent](/api/function/VideoComponent)     | Elemento que envolve um bloco de vídeo.                                  |
+  | `sl-width-fixed`    |                    Todos os blocos                     | Denota que a largura do bloco é fixa (definida pelo usuário).            |
+  | `sl-width-auto`     |                    Todos os blocos                     | Denota que a largura do bloco é definida automaticamente pelo navegador. |
+  | `sl-width-justify`  |                    Todos os blocos                     | Denota que a largura do bloco é justificada ao texto.                    |
+  | `sl-width-max`      |                    Todos os blocos                     | Denota que a largura do bloco é a maior possível.                        |
+
+</div>
+
+### Largura dos blocos {#block-width}
+
+Por padrão, blocos de conteúdo utilizam todo o espaço horizontal disponível para o componente `VisualContent`, mas a
+largura dos blocos pode ser facilmente alterada pela interface do editor de conteúdo no Starlight. Nela,
+o usuário pode escolher dentre 4 tipos de largura: fixa, automática, justificada e máxima.
+
+Na largura **fixa**, o usuário define manualmente a largura do bloco em pixels ou porcentagem da largura total do conteúdo.
+
+Na **automática**, a largura do bloco é definida como a largura original do seu conteúdo, mas nunca maior do que a largura
+total do conteúdo. Por exemplo, se a largura de um bloco de imagem for definida como automática, e a imagem selecionada
+tiver 600 pixels de largura, a largura do bloco será de 600 pixels. Porém, se a largura total do conteúdo ao redor do
+bloco de imagem for menor do que 600 pixels, a imagem terá a mesma largura que o conteúdo.
+
+Na **justificada**, a largura é definida como a mesma largura do resto do conteúdo, independente do conteúdo
+do bloco. Essa é a configuração padrão.
+
+Na **máxima**, a largura do bloco é sempre a maior possível. Sem nenhuma configuração adicional, a largura máxima se
+comporta da mesma maneira que a largura justificada. Porém, é possível configurar o CSS do componente `VisualContent`
+para permitir que blocos com largura máxima excedam a largura dos outros blocos de conteúdo.
+
+
+#### Largura máxima {#maximum-width}
+
+A largura de um bloco renderizado pelo `VisualContent` depende do seu conteúdo, como a quantidade de texto escrita num
+bloco de parágrafo ou a resolução da imagem selecionada pelo usuário num bloco de imagem.
+
+[//]: # (Como comentamos anteriormente, blocos de conteúdo renderizados pelo `VisualContent` utilizam todo o espaço horizontal)
+
+[//]: # (disponibilizado para o componente `VisualContent` em si por padrão. Por exemplo, se o componente `VisualContent` foi)
+
+[//]: # (renderizado dentro de um elemento com 1000 pixels de largura disponível, os blocos de conteúdo terão no máximo 1000)
+
+[//]: # (pixels de largura, admitindo que seus conteúdos são suficientes para consumir todo esse espaço.)
+
+Dito isso, é possível limitar a largura de um bloco utilizando a classe `.sl-content-block`. Por exemplo, para limitar
+a largura dos blocos de conteúdo em 500 pixels, você pode utilizar esse CSS:
+
+```css
+.sl-content-block {
+  max-width: 500px;
+}
+```
+
+Porém, blocos de conteúdo configurados com a largura **máxima** podem exceder esse limite, e suas larguras são limitadas
+apenas pela largura do componente `VisualContent` em si.
+
+Por exemplo, se você utilizar o CSS do exemplo acima e renderizar o componente `VisualContent` dentro de um elemento
+com 1000 pixels de largura disponível, blocos com largura **máxima** terão 1000 pixels de largura, e todos os outros
+blocos terão no máximo 500 pixels de largura.
+
+Como outro exemplo, digamos que você tenha um blog onde o conteúdo das postagens é centralizado na página, e você quer
+que a largura de certos blocos, como algumas imagens, exceda a largura do conteúdo para um efeito dramático:
+
+<figure>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcSet={require("./assets/_beforeafterdark.png").default}/>
+    <source media="(prefers-color-scheme: light)" srcSet={require("./assets/_beforeafterlight.png").default}/>
+    <IdealImage img={require('./assets/_beforeafterlight.png')}/>
+  </picture>
+  <figcaption>Depois da atualização, os blocos de conteúdo continuam com a mesma largura por padrão, mas blocos que tem
+    largura máxima (<code style={{ whiteSpace: 'nowrap' }}>.sl-width-max</code>) ocupam todo o espaço disponível na tela.
+  </figcaption>
+</figure>
+
+Nesse exemplo, digamos que o elemento de classe <code className={styles.parentComponentExample}>.parent-component</code> originalmente
+tenha uma largura de 1000 pixels, que é representado pelo <b>antes</b> na imagem acima e no código abaixo.
+
+Para atualizar a largura do conteúdo, você deve definir a <b>largura</b> do elemento de classe <code className={styles.parentComponentExample}>.parent-component</code> como
+100% da largura da tela e a <b>largura máxima</b> dos elementos de classe <code className={styles.contentBlockExample}>.sl-content-block</code> como
+1000 pixels:
+
+<div className={styles.maxWidthExamples}>
+  <div>
+    <CodeBlock language="css" title="Antes">
+      {beforeWidthExample}
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock language="css" title="Depois">
+      {afterWidthExample}
+    </CodeBlock>
+  </div>
+</div>
+
+Com esse código, blocos com largura **máxima** irão preencher 100% da largura da tela, e todos os outros blocos terão
+no máximo 1000 pixels de largura.
+
+Por último, note como nós não precisamos alterar nada no elemento <code className={styles.visualContentExample}>.sl-visual-content</code>, já
+que esse sempre utiliza toda a largura disponibilizada pelo seu elemento pai.
+
 
 ### Imagens responsivas {#responsive-images}
 
@@ -183,7 +285,7 @@ const ResponsiveImageExample = () => {
   const content = {
     time: 1663784614074,
     version: '1.42',
-    blocks: [...]
+    blocks: [/* exemplo */]
   }
 
   return (

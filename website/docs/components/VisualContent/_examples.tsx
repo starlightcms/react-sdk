@@ -26,7 +26,7 @@ const SimpleExample = () => {
         data: {
           text: 'Esse é apenas um exemplo de conteúdo, incluindo <b>conteúdo</b> em <i>HTML!</i>'
         }
-      },
+      }
     ]
   }
 
@@ -96,7 +96,7 @@ const ExcerptExample = () => {
             'funciona, cortando o texto quando a quantidade de palavras passa do limite definido pela propriedade ' +
              '"excerptLength", que, por padrão, define um limite de 40 palavras.'
         }
-      },
+      }
     ]
   }
 
@@ -250,3 +250,17 @@ const CustomExample = () => {
     </div>
   )
 }
+
+export const beforeWidthExample = `.parent-component {
+  width: 1000px;
+}`
+
+export const afterWidthExample = `.parent-component {
+  width: 100%;
+}
+
+.sl-content-block {
+  /* Note como usamos a regra 
+     max-width, e não width! */
+  max-width: 1000px;
+}`

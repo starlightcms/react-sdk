@@ -29,3 +29,44 @@
     background-color: #282A36;
   }
 }
+
+.maxWidthExamples {
+  display: flex;
+  gap: 20px;
+
+  > div {
+    width: 50%
+  }
+
+  @media screen and (max-width: 599px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%
+    }
+  }
+}
+
+.classTable {
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+
+.parentComponentExample {
+  background-color: #B3E5C4;
+  color: #104C24;
+  white-space: nowrap;
+}
+
+.visualContentExample {
+  background-color: #E3C9FC;
+  color: #460F62;
+  white-space: nowrap;
+}
+
+.contentBlockExample {
+  background-color: #A8D8FA;
+  color: #10334C;
+  white-space: nowrap;
+}

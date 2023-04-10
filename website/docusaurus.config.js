@@ -34,6 +34,15 @@ const config = {
         },
       },
     ],
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 2000,
+        min: 640,
+        steps: 4,
+      },
+    ]
   ],
 
   presets: [
@@ -53,7 +62,7 @@ const config = {
         //   blogSidebarTitle: 'Posts recentes',
         // },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve('./src/css/custom.scss'), require.resolve('./src/css/markdown.scss')],
         },
       }),
     ],

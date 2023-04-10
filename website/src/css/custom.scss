@@ -1,0 +1,141 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+  /* Starlight Colors */
+  --sl-color-gray-0: hsla(0, 0%, 100%, 1);
+  --sl-color-gray-100: hsla(210, 20%, 98%, 1);
+  --sl-color-gray-200: hsla(220, 12%, 95.1%, 1);
+  --sl-color-gray-300: hsla(214, 11.5%, 88%, 1);
+  --sl-color-gray-400: hsla(215, 11.8%, 80%, 1);
+  --sl-color-gray-500: hsla(214, 11.7%, 64.9%, 1);
+  --sl-color-gray-600: hsla(214, 10%, 55.1%, 1);
+  --sl-color-gray-700: hsla(214, 10%, 44.9%, 1);
+  --sl-color-gray-800: hsla(214, 11.7%, 35.1%, 1);
+  --sl-color-gray-900: hsla(214, 12.5%, 25.1%, 1);
+  --sl-color-gray-1000: hsla(215, 11.8%, 20%, 1);
+  --sl-color-gray-1100: hsla(214, 13.7%, 10%, 1);
+  --sl-color-orange-100: hsla(24, 100%, 98%, 1);
+  --sl-color-orange-200: hsla(25, 100%, 94.9%, 1);
+  --sl-color-orange-300: hsla(25, 100%, 88%, 1);
+  --sl-color-orange-400: hsla(25, 100%, 77.1%, 1);
+  --sl-color-orange-500: hsla(25, 95.5%, 64.9%, 1);
+  --sl-color-orange-600: hsla(25, 87.8%, 52%, 1);
+  --sl-color-orange-700: hsla(25, 84.7%, 46.1%, 1);
+  --sl-color-orange-800: hsla(25, 75.3%, 34.9%, 1);
+  --sl-color-orange-900: hsla(25, 69.6%, 27.1%, 1);
+  --sl-color-orange-1000: hsla(25, 75.8%, 17.8%, 1);
+  --sl-color-blue-100: hsla(206, 63.6%, 97.8%, 1);
+  --sl-color-blue-200: hsla(205, 100%, 92%, 1);
+  --sl-color-blue-300: hsla(205, 89.1%, 82%, 1);
+  --sl-color-blue-400: hsla(205, 89.5%, 70%, 1);
+  --sl-color-blue-500: hsla(205, 94.4%, 65.1%, 1);
+  --sl-color-blue-600: hsla(205, 85.2%, 52.2%, 1);
+  --sl-color-blue-700: hsla(205, 80%, 45.1%, 1);
+  --sl-color-blue-800: hsla(205, 74.5%, 40%, 1);
+  --sl-color-blue-900: hsla(205, 69.9%, 30%, 1);
+  --sl-color-blue-1000: hsla(205, 65.2%, 18%, 1);
+  --sl-color-green-100: hsla(138, 86.7%, 97.1%, 1);
+  --sl-color-green-200: hsla(139, 60.8%, 90%, 1);
+  --sl-color-green-300: hsla(140, 49%, 80%, 1);
+  --sl-color-green-400: hsla(140, 50.3%, 66.1%, 1);
+  --sl-color-green-500: hsla(140, 50%, 60%, 1);
+  --sl-color-green-600: hsla(140, 59.8%, 40%, 1);
+  --sl-color-green-700: hsla(140, 64%, 34.9%, 1);
+  --sl-color-green-800: hsla(140, 64.7%, 30%, 1);
+  --sl-color-green-900: hsla(140, 70.1%, 24.9%, 1);
+  --sl-color-green-1000: hsla(140, 65.2%, 18%, 1);
+  --sl-color-red-100: hsla(353, 81.8%, 97.8%, 1);
+  --sl-color-red-200: hsla(355, 92%, 95.1%, 1);
+  --sl-color-red-300: hsla(355, 79.2%, 84.9%, 1);
+  --sl-color-red-400: hsla(355, 79.7%, 74.9%, 1);
+  --sl-color-red-500: hsla(355, 75.3%, 65.1%, 1);
+  --sl-color-red-600: hsla(355, 74.8%, 54.9%, 1);
+  --sl-color-red-700: hsla(355, 74.8%, 45.1%, 1);
+  --sl-color-red-800: hsla(355, 69.6%, 40%, 1);
+  --sl-color-red-900: hsla(355, 69.9%, 30%, 1);
+  --sl-color-red-1000: hsla(355, 69.6%, 18%, 1);
+  --sl-color-purple-100: hsla(258, 100%, 98%, 1);
+  --sl-color-purple-200: hsla(265, 90.5%, 95.9%, 1);
+  --sl-color-purple-300: hsla(271, 89.5%, 88.8%, 1);
+  --sl-color-purple-400: hsla(274, 86.7%, 85.3%, 1);
+  --sl-color-purple-500: hsla(276, 86.1%, 77.5%, 1);
+  --sl-color-purple-600: hsla(278, 76.5%, 64.9%, 1);
+  --sl-color-purple-700: hsla(279, 69.9%, 57.1%, 1);
+  --sl-color-purple-800: hsla(279, 63.7%, 42.2%, 1);
+  --sl-color-purple-900: hsla(280, 70.7%, 32.2%, 1);
+  --sl-color-purple-1000: hsla(280, 73.5%, 22.2%, 1);
+  --sl-font-header-1: 900 3rem/1.2 'Overpass', sans-serif;
+  --sl-font-header-2: 900 2.25rem/1.2 'Overpass', sans-serif;
+  --sl-font-header-3: 700 1.5rem/1.2 'Overpass', sans-serif;
+  --sl-font-header-4: 700 1.125rem/1.2 'Overpass', sans-serif;
+  --sl-font-header-5: 700 1rem/1.2 'Overpass', sans-serif;
+  --sl-font-paragraph: 400 1rem/1.6 'Inter', sans-serif;
+  --sl-font-paragraph-small: 400 14px/1.6 'Inter', sans-serif;
+  --sl-font-label: 600 0.8125rem 'Inter', sans-serif;
+
+  /* Infima & Docusaurus variables */
+  --ifm-heading-color: var(--sl-color-gray-900);
+  --ifm-hero-text-color: var(--sl-color-gray-900);
+  --ifm-color-primary: #e97420;
+  --ifm-color-primary-dark: #d96715;
+  --ifm-color-primary-darker: #cd6114;
+  --ifm-color-primary-darkest: #a95011;
+  --ifm-color-primary-light: #eb8338;
+  --ifm-color-primary-lighter: #ed8b44;
+  --ifm-color-primary-lightest: #f0a168;
+  --ifm-code-font-size: 95%;
+  --ifm-breadcrumb-item-background-active: var(--sl-color-orange-200);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  // Custom active caret icon
+  --ifm-menu-link-sublist-icon-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(231,113,27,1)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+  --ifm-menu-link-padding-vertical: 0.25rem;
+
+  // Custom search icon
+  --ifm-navbar-search-input-icon: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M6.03 10.2a4.17 4.17 0 1 1 0-8.34 4.17 4.17 0 0 1 0 8.34Zm9.7 4.22L10.9 9.6a6 6 0 1 0-1.3 1.3l4.82 4.82a.9.9 0 0 0 1.3 0 .9.9 0 0 0 0-1.3Z' fill='%234F5864'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h16v16H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+}
+
+[data-theme='dark'] {
+  --ifm-heading-color: var(--sl-color-gray-200);
+  --ifm-color-primary: #e7711b;
+  --ifm-color-primary-dark: #d26516;
+  --ifm-color-primary-darker: #c66015;
+  --ifm-color-primary-darkest: #a34f11;
+  --ifm-color-primary-light: #e98032;
+  --ifm-color-primary-lighter: #eb873e;
+  --ifm-color-primary-lightest: #ee9d61;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.jargon-term {
+    text-decoration: underline dotted #228be6;
+}
+
+.jargon-term:hover {
+    position: relative;
+    text-decoration: none;
+    cursor: help;
+}
+
+.jargon-term .jargon-info {
+    display: none;
+}
+
+.jargon-term:hover .jargon-info {
+    display: block;
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    background: #F8F8F8;
+    border: 1px solid #DCDCDC;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 90%;
+    min-width: 250px;
+    max-width: 450px;
+    z-index: 1;
+}
