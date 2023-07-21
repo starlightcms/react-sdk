@@ -62,7 +62,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@starlightcms/js-sdk": "^2.0.3"
+    "@starlightcms/js-sdk": "^2.1.0"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
