@@ -21,7 +21,7 @@
     "docs:serve": "npm run serve -w website",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "files": [
     "dist/**/*"
@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/starlightcms/react-sdk#readme",
   "devDependencies": {
+    "@testing-library/react": "^12.1.5",
     "@types/node": "^16.10.1",
     "@types/react": "^17.0.31",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
@@ -48,10 +49,12 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
+    "jsdom": "^22.1.0",
     "lint-staged": "^11.1.2",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "vitest": "^0.34.6"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -62,7 +65,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@starlightcms/js-sdk": "^2.1.0"
+    "@starlightcms/js-sdk": "^2.2.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
