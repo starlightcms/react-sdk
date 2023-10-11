@@ -21,7 +21,8 @@
     "docs:serve": "npm run serve -w website",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "test": "vitest"
+    "test": "vitest",
+    "test-ct": "playwright test"
   },
   "files": [
     "dist/**/*"
@@ -41,6 +42,7 @@
   },
   "homepage": "https://github.com/starlightcms/react-sdk#readme",
   "devDependencies": {
+    "@playwright/experimental-ct-react17": "^1.38.1",
     "@testing-library/react": "^12.1.5",
     "@types/node": "^16.10.1",
     "@types/react": "^17.0.31",
