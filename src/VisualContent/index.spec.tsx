@@ -1,6 +1,6 @@
 import React from 'react'
-import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { describe, it, expect, afterEach } from 'vitest'
+import { render, cleanup } from '@testing-library/react'
 import { ListComponent, VisualContent } from './index'
 import { ListBlock, VisualData, VisualDataBlock } from '@starlightcms/js-sdk'
 
@@ -155,6 +155,10 @@ const content: VisualData = {
   ],
   version: '2.27.0-rc.4',
 }
+
+afterEach(() => {
+  cleanup()
+})
 
 describe('VisualContent component', () => {
   it('The VisualContent UI (with no props) should not change', () => {

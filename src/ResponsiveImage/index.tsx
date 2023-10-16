@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+
 import { MediaObject } from '@starlightcms/js-sdk'
 import { ResponsiveImageProps } from './types'
 
@@ -127,7 +128,7 @@ export const ResponsiveImage = ({
   const imageStyle = useMemo(() => {
     return {
       backgroundColor:
-        background || hasLoaded || typeof image === 'string'
+        !background || hasLoaded || typeof image === 'string'
           ? 'transparent'
           : `#${source?.background_color ?? 'transparent'}`,
     }
@@ -181,9 +182,14 @@ export const ResponsiveImage = ({
         srcSet={canLoad ? (sourceSet ? sourceSet : undefined) : undefined}
         sizes={canLoad ? (sourceSet ? sizes : undefined) : undefined}
         alt={alt}
+        data-testid="image"
       />
       <noscript>
-        <img src={(source && source.path) || (image as string)} alt={alt} />
+        <img
+          src={(source && source.path) || (image as string)}
+          alt={alt}
+          data-testid="image"
+        />
       </noscript>
     </>
   )
