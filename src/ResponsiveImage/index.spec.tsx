@@ -79,7 +79,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
@@ -97,7 +97,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'https://cards.scryfall.io/art_crop/front/7/b/7b6d71a0-7603-4cf1-b874-2b2200e62183.jpg?1562921013'
@@ -113,7 +113,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'https://picsum.photos/seed/starlight-optimized/406/186.jpg'
@@ -129,7 +129,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute('alt', 'Lorem ipsum')
   })
 
@@ -142,7 +142,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute('alt', 'Prop alt')
   })
 
@@ -155,7 +155,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'https://picsum.photos/seed/starlight-thumbnail/200/92.jpg'
@@ -171,7 +171,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute('class', 'sl-lazyload testClass')
   })
 
@@ -189,7 +189,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'sizes',
       '(max-width: 710px) 120px, (max-width: 991px) 193px, 278px'
@@ -205,7 +205,7 @@ describe('ResponsiveImage component', () => {
       new IntersectionObserverMock(() => undefined)
     )
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
@@ -219,7 +219,7 @@ describe('ResponsiveImage component', () => {
   it("Image loads only after being scrolled to (i.e. after it's in the viewport)", async () => {
     render(<ResponsiveImage image={exampleImage} />)
 
-    const image = await screen.findByTestId('image')
+    const image = await screen.findByTestId('sl-responsive-image')
     expect(image).toHaveAttribute(
       'src',
       'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='

@@ -1,6 +1,6 @@
 import React from 'react'
 import { describe, it, expect, afterEach } from 'vitest'
-import { render, cleanup } from '@testing-library/react'
+import { render, cleanup, screen } from '@testing-library/react'
 import { ListComponent, VisualContent } from './index'
 import { ListBlock, VisualData, VisualDataBlock } from '@starlightcms/js-sdk'
 
@@ -10,7 +10,7 @@ const content: VisualData = {
     {
       id: '4tfCt1WHxx',
       data: {
-        text: 'texto normal',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus vitae justo elementum tincidunt vel vitae neque. Mauris sit amet arcu vitae augue aliquet euismod quis sit amet dui. Quisque in molestie justo. Nam vulputate augue risus, sit amet aliquam augue viverra sed. In vitae justo vel lorem porttitor.',
       },
       type: 'paragraph',
     },
@@ -161,41 +161,68 @@ afterEach(() => {
 })
 
 describe('VisualContent component', () => {
-  it('The VisualContent UI (with no props) should not change', () => {
-    const component = render(<VisualContent />)
+  it('The VisualContent UI (with content prop) should have the proper amount of blocks', async () => {
+    render(<VisualContent content={content} />)
 
-    expect(component).toMatchSnapshot()
+    const visualContent = await screen.findByTestId('sl-visual-content')
+
+    expect(visualContent.children.length).toEqual(content.blocks.length)
   })
 
-  it('The VisualContent UI (with content prop) should not change', () => {
-    const component = render(<VisualContent content={content} />)
+  it('The VisualContent UI (with content and excerpt = true props) should render an excerpt of 40 words with an ellipsis at the end', async () => {
+    render(<VisualContent content={content} excerpt={true} />)
 
-    expect(component).toMatchSnapshot()
-  })
-
-  it('The VisualContent UI (with content and excerpt = true props) should not change', () => {
-    const component = render(<VisualContent content={content} excerpt={true} />)
-
-    expect(component).toMatchSnapshot()
-  })
-
-  it('The VisualContent UI (with content and excerptLength = 5 props) should not change', () => {
-    const component = render(
-      <VisualContent content={content} excerptLength={5} />
+    const visualContent = await screen.findByTestId(
+      'sl-visual-content-paragraph-block'
     )
 
-    expect(component).toMatchSnapshot()
+    const textArray = visualContent.textContent?.split(' ') ?? []
+    const lastWord = textArray[39]
+
+    expect(textArray.length).toEqual(40)
+    expect(lastWord.substring(lastWord.length - 3)).toEqual('...')
   })
 
-  it('The VisualContent UI (with content, excerpt = true and excerptLength = 5 props) should not change', () => {
-    const component = render(
-      <VisualContent content={content} excerpt={true} excerptLength={5} />
+  it('The VisualContent UI (with content and excerpt = true props) should fully render the first block if it has less than 40 words', async () => {
+    const newContent = JSON.parse(JSON.stringify(content))
+    newContent.blocks[0].data.text = 'Lorem ipsum dolor sit amet'
+
+    render(<VisualContent content={newContent} excerpt={true} />)
+
+    const visualContent = await screen.findByTestId(
+      'sl-visual-content-paragraph-block'
     )
 
-    expect(component).toMatchSnapshot()
+    const textArray = visualContent.textContent?.split(' ') ?? []
+    const lastWord = textArray[4]
+
+    expect(textArray.length).toEqual(5)
+    expect(lastWord.substring(lastWord.length - 3)).toEqual('met')
   })
 
-  it('The VisualContent UI (with content and components props) should not change', () => {
+  it('The VisualContent UI (with content and excerptLength = 5 props) should render normally', async () => {
+    render(<VisualContent content={content} excerptLength={5} />)
+
+    const visualContent = await screen.findByTestId('sl-visual-content')
+
+    expect(visualContent.children.length).toEqual(content.blocks.length)
+  })
+
+  it('The VisualContent UI (with content, excerpt = true and excerptLength = 5 props) should render an excerpt of 5 words with an ellipsis at the end', async () => {
+    render(<VisualContent content={content} excerpt={true} excerptLength={5} />)
+
+    const visualContent = await screen.findByTestId(
+      'sl-visual-content-paragraph-block'
+    )
+
+    const textArray = visualContent.textContent?.split(' ') ?? []
+    const lastWord = textArray[4]
+
+    expect(textArray.length).toEqual(5)
+    expect(lastWord.substring(lastWord.length - 3)).toEqual('...')
+  })
+
+  it('The VisualContent UI (with content and components props) should have the proper amount of blocks', async () => {
     const CustomListComponent = ({
       id,
       type,
@@ -208,10 +235,15 @@ describe('VisualContent component', () => {
       return <ListComponent id={id} type={type} data={data} />
     }
 
-    const component = render(
-      <VisualContent components={{ list: CustomListComponent }} />
+    render(
+      <VisualContent
+        content={content}
+        components={{ list: CustomListComponent }}
+      />
     )
 
-    expect(component).toMatchSnapshot()
+    const visualContent = await screen.findByTestId('sl-visual-content')
+
+    expect(visualContent.children.length).toEqual(content.blocks.length)
   })
 })

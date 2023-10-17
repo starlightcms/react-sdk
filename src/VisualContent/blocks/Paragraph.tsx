@@ -17,7 +17,11 @@ import React, { FC } from 'react'
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
   if (!data.text)
     return (
-      <BlockWrapper className="sl-content-block sl-paragraph empty" aria-hidden>
+      <BlockWrapper
+        className="sl-content-block sl-paragraph empty"
+        data-testid="sl-visual-content-paragraph-block"
+        aria-hidden
+      >
         <p>
           <br />
         </p>
@@ -25,7 +29,10 @@ const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
     )
 
   return (
-    <BlockWrapper className="sl-content-block sl-paragraph">
+    <BlockWrapper
+      className="sl-content-block sl-paragraph"
+      data-testid="sl-visual-content-paragraph-block"
+    >
       <p dangerouslySetInnerHTML={{ __html: data.text }} />
     </BlockWrapper>
   )

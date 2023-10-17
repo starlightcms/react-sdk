@@ -39,7 +39,10 @@ const List: FC<VisualDataBlock<ListBlock>> = ({ data }) => {
   const listElement = data.style === 'ordered' ? 'ol' : 'ul'
 
   return (
-    <BlockWrapper className="sl-content-block sl-list">
+    <BlockWrapper
+      className="sl-content-block sl-list"
+      data-testid="sl-visual-content-list-block"
+    >
       <ListWrapper as={listElement} className="sl-list__root">
         {data.items.map((item, index) => (
           <SubList key={index} item={item} Wrapper={listElement} />

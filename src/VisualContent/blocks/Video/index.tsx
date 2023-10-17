@@ -20,7 +20,10 @@ const Video: FC<VisualDataBlock<VideoBlock>> = ({ data }) => {
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
   return (
-    <BlockWrapper className={`sl-content-block sl-video sl-width-${widthType}`}>
+    <BlockWrapper
+      className={`sl-content-block sl-video sl-width-${widthType}`}
+      data-testid="sl-visual-content-video-block"
+    >
       <VideoWrapper width={width}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
 

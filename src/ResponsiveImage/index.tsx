@@ -182,13 +182,13 @@ export const ResponsiveImage = ({
         srcSet={canLoad ? (sourceSet ? sourceSet : undefined) : undefined}
         sizes={canLoad ? (sourceSet ? sizes : undefined) : undefined}
         alt={alt}
-        data-testid="image"
+        data-testid="sl-responsive-image"
       />
       <noscript>
         <img
           src={(source && source.path) || (image as string)}
           alt={alt}
-          data-testid="image"
+          data-testid="sl-responsive-image"
         />
       </noscript>
     </>
