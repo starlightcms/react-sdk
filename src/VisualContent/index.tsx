@@ -110,7 +110,7 @@ export const VisualContent = ({
     )
   }
   return (
-    <OuterWrapper className="sl-visual-content">
+    <OuterWrapper className="sl-visual-content" data-testid="sl-visual-content">
       {content.blocks.map((block) => {
         const Component = componentList[block.type]
 

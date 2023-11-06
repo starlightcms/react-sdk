@@ -1,0 +1,1340 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VisualContent component > The VisualContent UI (with content and components props) should have the proper amount of blocks 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with content and components props) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with content and excerpt = true props) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto normal
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sl-content-block sl-paragraph css-1x1xw1y"
+    >
+      <p>
+        texto normal
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with content and excerptLength = 5 props) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sl-visual-content css-1d4h3ek"
+      >
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto normal
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            <a
+              href="https://www.google.com/"
+            >
+              texto link
+            </a>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto 
+            <b>
+              negrito
+            </b>
+             
+            <i>
+              itálico 
+            </i>
+            <span
+              class="sl-editor__underline"
+            >
+              sublinhado
+            </span>
+             tachado 
+            <sub
+              class="sl-editor__subscript"
+            >
+              subscrito
+            </sub>
+             
+            <sup
+              class="sl-editor__superscript"
+            >
+              sobrescrito
+            </sup>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto 
+            <span
+              class="sl__color sl__color__bg--red"
+            >
+              com fundo
+            </span>
+            , 
+            <span
+              class="sl__color sl__color__text--green"
+            >
+              colorido
+            </span>
+            , 
+            <span
+              class="sl__color sl__color__bg--orange sl__color__text--blue"
+            >
+              com fundo e colorido
+            </span>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-html css-1x1xw1y"
+        >
+          <div
+            class="css-x4ii1g"
+          >
+            <div>
+              
+        
+              <span>
+                teste bloco html
+              </span>
+              
+        
+              <p>
+                teste bloco html
+              </p>
+              
+      
+            </div>
+          </div>
+        </div>
+        <div
+          class="sl-content-block sl-header css-1x1xw1y"
+        >
+          <h2>
+            texto cabeçalho h1 
+            <i>
+              itálico
+            </i>
+             
+            <span
+              class="sl-editor__underline"
+            >
+              sublinhado
+            </span>
+          </h2>
+        </div>
+        <div
+          class="sl-content-block sl-image sl-width-justify css-1x1xw1y"
+        >
+          <figure
+            class="css-yocpc3"
+          >
+            <img
+              alt="alt text"
+              class="css-1h0zy31"
+              sizes="(max-width: 480px) 90vw, 70vw"
+              src="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg"
+              srcset="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg 571w, https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/thumbnail/wth-160-thran-tomejpg-wug5zm4gqh.jpg 200w"
+              width="justify"
+            />
+            <figcaption>
+              legenda
+            </figcaption>
+          </figure>
+        </div>
+        <div
+          class="sl-content-block sl-image sl-width-auto css-1x1xw1y"
+        >
+          <figure
+            class="css-yocpc3"
+          >
+            <img
+              alt="alt"
+              class="css-13jtx7r"
+              src="https://cards.scryfall.io/art_crop/front/1/c/1cef9230-34fa-496f-8835-5dfaac627f70.jpg?1576796588"
+              srcset=""
+              width="auto"
+            />
+            <figcaption>
+              legenda 2
+            </figcaption>
+          </figure>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            listas abaixo
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-list css-1x1xw1y"
+        >
+          <ol
+            class="sl-list__root css-vr709y"
+          >
+            <li>
+              <span>
+                item 1
+              </span>
+            </li>
+            <li>
+              <span>
+                item 2
+              </span>
+            </li>
+            <li>
+              <span>
+                item 3
+              </span>
+            </li>
+          </ol>
+        </div>
+        <div
+          class="sl-content-block sl-list css-1x1xw1y"
+        >
+          <ul
+            class="sl-list__root css-vr709y"
+          >
+            <li>
+              <span>
+                ponto 1
+              </span>
+            </li>
+            <li>
+              <span>
+                ponto 2
+              </span>
+            </li>
+            <li>
+              <span>
+                ponto 3
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="sl-content-block sl-video sl-width-justify css-1x1xw1y"
+        >
+          <figure
+            class="css-1snaa14"
+            width="justify"
+          >
+            <div>
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sl-visual-content css-1d4h3ek"
+    >
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto normal
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          <a
+            href="https://www.google.com/"
+          >
+            texto link
+          </a>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto 
+          <b>
+            negrito
+          </b>
+           
+          <i>
+            itálico 
+          </i>
+          <span
+            class="sl-editor__underline"
+          >
+            sublinhado
+          </span>
+           tachado 
+          <sub
+            class="sl-editor__subscript"
+          >
+            subscrito
+          </sub>
+           
+          <sup
+            class="sl-editor__superscript"
+          >
+            sobrescrito
+          </sup>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto 
+          <span
+            class="sl__color sl__color__bg--red"
+          >
+            com fundo
+          </span>
+          , 
+          <span
+            class="sl__color sl__color__text--green"
+          >
+            colorido
+          </span>
+          , 
+          <span
+            class="sl__color sl__color__bg--orange sl__color__text--blue"
+          >
+            com fundo e colorido
+          </span>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-html css-1x1xw1y"
+      >
+        <div
+          class="css-x4ii1g"
+        >
+          <div>
+            
+        
+            <span>
+              teste bloco html
+            </span>
+            
+        
+            <p>
+              teste bloco html
+            </p>
+            
+      
+          </div>
+        </div>
+      </div>
+      <div
+        class="sl-content-block sl-header css-1x1xw1y"
+      >
+        <h2>
+          texto cabeçalho h1 
+          <i>
+            itálico
+          </i>
+           
+          <span
+            class="sl-editor__underline"
+          >
+            sublinhado
+          </span>
+        </h2>
+      </div>
+      <div
+        class="sl-content-block sl-image sl-width-justify css-1x1xw1y"
+      >
+        <figure
+          class="css-yocpc3"
+        >
+          <img
+            alt="alt text"
+            class="css-1h0zy31"
+            sizes="(max-width: 480px) 90vw, 70vw"
+            src="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg"
+            srcset="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg 571w, https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/thumbnail/wth-160-thran-tomejpg-wug5zm4gqh.jpg 200w"
+            width="justify"
+          />
+          <figcaption>
+            legenda
+          </figcaption>
+        </figure>
+      </div>
+      <div
+        class="sl-content-block sl-image sl-width-auto css-1x1xw1y"
+      >
+        <figure
+          class="css-yocpc3"
+        >
+          <img
+            alt="alt"
+            class="css-13jtx7r"
+            src="https://cards.scryfall.io/art_crop/front/1/c/1cef9230-34fa-496f-8835-5dfaac627f70.jpg?1576796588"
+            srcset=""
+            width="auto"
+          />
+          <figcaption>
+            legenda 2
+          </figcaption>
+        </figure>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          listas abaixo
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-list css-1x1xw1y"
+      >
+        <ol
+          class="sl-list__root css-vr709y"
+        >
+          <li>
+            <span>
+              item 1
+            </span>
+          </li>
+          <li>
+            <span>
+              item 2
+            </span>
+          </li>
+          <li>
+            <span>
+              item 3
+            </span>
+          </li>
+        </ol>
+      </div>
+      <div
+        class="sl-content-block sl-list css-1x1xw1y"
+      >
+        <ul
+          class="sl-list__root css-vr709y"
+        >
+          <li>
+            <span>
+              ponto 1
+            </span>
+          </li>
+          <li>
+            <span>
+              ponto 2
+            </span>
+          </li>
+          <li>
+            <span>
+              ponto 3
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sl-content-block sl-video sl-width-justify css-1x1xw1y"
+      >
+        <figure
+          class="css-1snaa14"
+          width="justify"
+        >
+          <div>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            />
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with content prop) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sl-visual-content css-1d4h3ek"
+      >
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto normal
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            <a
+              href="https://www.google.com/"
+            >
+              texto link
+            </a>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto 
+            <b>
+              negrito
+            </b>
+             
+            <i>
+              itálico 
+            </i>
+            <span
+              class="sl-editor__underline"
+            >
+              sublinhado
+            </span>
+             tachado 
+            <sub
+              class="sl-editor__subscript"
+            >
+              subscrito
+            </sub>
+             
+            <sup
+              class="sl-editor__superscript"
+            >
+              sobrescrito
+            </sup>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            texto 
+            <span
+              class="sl__color sl__color__bg--red"
+            >
+              com fundo
+            </span>
+            , 
+            <span
+              class="sl__color sl__color__text--green"
+            >
+              colorido
+            </span>
+            , 
+            <span
+              class="sl__color sl__color__bg--orange sl__color__text--blue"
+            >
+              com fundo e colorido
+            </span>
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-html css-1x1xw1y"
+        >
+          <div
+            class="css-x4ii1g"
+          >
+            <div>
+              
+        
+              <span>
+                teste bloco html
+              </span>
+              
+        
+              <p>
+                teste bloco html
+              </p>
+              
+      
+            </div>
+          </div>
+        </div>
+        <div
+          class="sl-content-block sl-header css-1x1xw1y"
+        >
+          <h2>
+            texto cabeçalho h1 
+            <i>
+              itálico
+            </i>
+             
+            <span
+              class="sl-editor__underline"
+            >
+              sublinhado
+            </span>
+          </h2>
+        </div>
+        <div
+          class="sl-content-block sl-image sl-width-justify css-1x1xw1y"
+        >
+          <figure
+            class="css-yocpc3"
+          >
+            <img
+              alt="alt text"
+              class="css-1h0zy31"
+              sizes="(max-width: 480px) 90vw, 70vw"
+              src="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg"
+              srcset="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg 571w, https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/thumbnail/wth-160-thran-tomejpg-wug5zm4gqh.jpg 200w"
+              width="justify"
+            />
+            <figcaption>
+              legenda
+            </figcaption>
+          </figure>
+        </div>
+        <div
+          class="sl-content-block sl-image sl-width-auto css-1x1xw1y"
+        >
+          <figure
+            class="css-yocpc3"
+          >
+            <img
+              alt="alt"
+              class="css-13jtx7r"
+              src="https://cards.scryfall.io/art_crop/front/1/c/1cef9230-34fa-496f-8835-5dfaac627f70.jpg?1576796588"
+              srcset=""
+              width="auto"
+            />
+            <figcaption>
+              legenda 2
+            </figcaption>
+          </figure>
+        </div>
+        <div
+          class="sl-content-block sl-paragraph css-1x1xw1y"
+        >
+          <p>
+            listas abaixo
+          </p>
+        </div>
+        <div
+          class="sl-content-block sl-list css-1x1xw1y"
+        >
+          <ol
+            class="sl-list__root css-vr709y"
+          >
+            <li>
+              <span>
+                item 1
+              </span>
+            </li>
+            <li>
+              <span>
+                item 2
+              </span>
+            </li>
+            <li>
+              <span>
+                item 3
+              </span>
+            </li>
+          </ol>
+        </div>
+        <div
+          class="sl-content-block sl-list css-1x1xw1y"
+        >
+          <ul
+            class="sl-list__root css-vr709y"
+          >
+            <li>
+              <span>
+                ponto 1
+              </span>
+            </li>
+            <li>
+              <span>
+                ponto 2
+              </span>
+            </li>
+            <li>
+              <span>
+                ponto 3
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="sl-content-block sl-video sl-width-justify css-1x1xw1y"
+        >
+          <figure
+            class="css-1snaa14"
+            width="justify"
+          >
+            <div>
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sl-visual-content css-1d4h3ek"
+    >
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto normal
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          <a
+            href="https://www.google.com/"
+          >
+            texto link
+          </a>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto 
+          <b>
+            negrito
+          </b>
+           
+          <i>
+            itálico 
+          </i>
+          <span
+            class="sl-editor__underline"
+          >
+            sublinhado
+          </span>
+           tachado 
+          <sub
+            class="sl-editor__subscript"
+          >
+            subscrito
+          </sub>
+           
+          <sup
+            class="sl-editor__superscript"
+          >
+            sobrescrito
+          </sup>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto 
+          <span
+            class="sl__color sl__color__bg--red"
+          >
+            com fundo
+          </span>
+          , 
+          <span
+            class="sl__color sl__color__text--green"
+          >
+            colorido
+          </span>
+          , 
+          <span
+            class="sl__color sl__color__bg--orange sl__color__text--blue"
+          >
+            com fundo e colorido
+          </span>
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-html css-1x1xw1y"
+      >
+        <div
+          class="css-x4ii1g"
+        >
+          <div>
+            
+        
+            <span>
+              teste bloco html
+            </span>
+            
+        
+            <p>
+              teste bloco html
+            </p>
+            
+      
+          </div>
+        </div>
+      </div>
+      <div
+        class="sl-content-block sl-header css-1x1xw1y"
+      >
+        <h2>
+          texto cabeçalho h1 
+          <i>
+            itálico
+          </i>
+           
+          <span
+            class="sl-editor__underline"
+          >
+            sublinhado
+          </span>
+        </h2>
+      </div>
+      <div
+        class="sl-content-block sl-image sl-width-justify css-1x1xw1y"
+      >
+        <figure
+          class="css-yocpc3"
+        >
+          <img
+            alt="alt text"
+            class="css-1h0zy31"
+            sizes="(max-width: 480px) 90vw, 70vw"
+            src="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg"
+            srcset="https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/optimized/wth-160-thran-tomejpg-wug5zm4gqh.jpg 571w, https://media-selene-development.s3.amazonaws.com/workspaces/testedocs/livraria/thumbnail/wth-160-thran-tomejpg-wug5zm4gqh.jpg 200w"
+            width="justify"
+          />
+          <figcaption>
+            legenda
+          </figcaption>
+        </figure>
+      </div>
+      <div
+        class="sl-content-block sl-image sl-width-auto css-1x1xw1y"
+      >
+        <figure
+          class="css-yocpc3"
+        >
+          <img
+            alt="alt"
+            class="css-13jtx7r"
+            src="https://cards.scryfall.io/art_crop/front/1/c/1cef9230-34fa-496f-8835-5dfaac627f70.jpg?1576796588"
+            srcset=""
+            width="auto"
+          />
+          <figcaption>
+            legenda 2
+          </figcaption>
+        </figure>
+      </div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          listas abaixo
+        </p>
+      </div>
+      <div
+        class="sl-content-block sl-list css-1x1xw1y"
+      >
+        <ol
+          class="sl-list__root css-vr709y"
+        >
+          <li>
+            <span>
+              item 1
+            </span>
+          </li>
+          <li>
+            <span>
+              item 2
+            </span>
+          </li>
+          <li>
+            <span>
+              item 3
+            </span>
+          </li>
+        </ol>
+      </div>
+      <div
+        class="sl-content-block sl-list css-1x1xw1y"
+      >
+        <ul
+          class="sl-list__root css-vr709y"
+        >
+          <li>
+            <span>
+              ponto 1
+            </span>
+          </li>
+          <li>
+            <span>
+              ponto 2
+            </span>
+          </li>
+          <li>
+            <span>
+              ponto 3
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sl-content-block sl-video sl-width-justify css-1x1xw1y"
+      >
+        <figure
+          class="css-1snaa14"
+          width="justify"
+        >
+          <div>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            />
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with content, excerpt = true and excerptLength = 5 props) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sl-content-block sl-paragraph css-1x1xw1y"
+      >
+        <p>
+          texto normal
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sl-content-block sl-paragraph css-1x1xw1y"
+    >
+      <p>
+        texto normal
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VisualContent component > The VisualContent UI (with no props) should not change 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

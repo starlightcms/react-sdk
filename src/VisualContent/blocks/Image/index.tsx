@@ -60,7 +60,10 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   }, [])
 
   return (
-    <BlockWrapper className={`sl-content-block sl-image sl-width-${widthType}`}>
+    <BlockWrapper
+      className={`sl-content-block sl-image sl-width-${widthType}`}
+      data-testid="sl-visual-content-image-block"
+    >
       <ImageWrapper>
         {href ? (
           <a href={href} target={target}>
