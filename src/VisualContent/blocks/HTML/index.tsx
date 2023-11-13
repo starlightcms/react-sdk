@@ -1,6 +1,4 @@
 import { HTMLBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../../styles'
-import { HTMLWrapper } from './styles'
 import React, { FC } from 'react'
 
 /**
@@ -16,9 +14,12 @@ import React, { FC } from 'react'
  */
 const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => {
   return (
-    <BlockWrapper className="sl-content-block sl-html">
-      <HTMLWrapper dangerouslySetInnerHTML={{ __html: data.html }} />
-    </BlockWrapper>
+    <div className="sl-content-block sl-html">
+      <div
+        className="sl-html__root"
+        dangerouslySetInnerHTML={{ __html: data.html }}
+      />
+    </div>
   )
 }
 

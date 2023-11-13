@@ -7,13 +7,18 @@
   ],
   "main": "dist/cjs/index.js",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "rimraf dist && npm run build:cjs && npm run build:esm",
-    "build:esm": "tsc --module esnext --outDir dist/esm",
+    "build": "rimraf dist && npm run build:cjs && npm run build:esm && npm run build:css",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc --module esnext --outDir dist/esm",
+    "build:css": "sass src/styles.scss dist/styles.css",
+    "watch:css": "sass --watch src/styles.scss dist/styles.css",
     "dev": "tsc --watch --module esnext --outDir dist/esm",
     "dev:cjs": "tsc --watch --module commonjs --outDir dist/cjs",
     "docs": "npm start -w website",
@@ -49,6 +54,7 @@
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
@@ -62,7 +68,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@starlightcms/js-sdk": "^2.1.0"
+    "@starlightcms/js-sdk": "^2.1.0",
+    "sass": "^1.69.5"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
