@@ -1,0 +1,42 @@
+.sl-video {
+  > figure.sl-figure {
+    margin: 0;
+
+    > div {
+      > * {
+        max-width: 100%;
+      }
+
+      > iframe {
+        display: block;
+        margin: auto;
+
+        aspect-ratio: 16/9;
+
+        border: none;
+
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.sl-width-auto {
+  > figure {
+    > div {
+      > iframe {
+        width: initial;
+      }
+    }
+  }
+}
+
+.sl-width-justify, .sl-width-max, .sl-width-fixed {
+  > figure.sl-figure {
+    > div {
+      > iframe {
+        width: 100%;
+      }
+    }
+  }
+}

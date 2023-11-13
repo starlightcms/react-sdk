@@ -1,5 +1,4 @@
 import { QuoteBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../styles'
 import React, { FC } from 'react'
 
 /**
@@ -15,9 +14,9 @@ import React, { FC } from 'react'
  */
 const Quote: FC<VisualDataBlock<QuoteBlock>> = ({ data }) => {
   return (
-    <BlockWrapper className="sl-content-block sl-quote">
+    <div className="sl-content-block sl-quote">
       <blockquote>{data.text}</blockquote>
-    </BlockWrapper>
+    </div>
   )
 }
 

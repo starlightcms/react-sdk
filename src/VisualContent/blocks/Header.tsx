@@ -1,5 +1,4 @@
 import { HeaderBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../styles'
 import React from 'react'
 
 /**
@@ -17,9 +16,9 @@ const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
   const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
-    <BlockWrapper className="sl-content-block sl-header">
+    <div className="sl-content-block sl-header">
       <HeaderComponent dangerouslySetInnerHTML={{ __html: data.text }} />
-    </BlockWrapper>
+    </div>
   )
 }
 

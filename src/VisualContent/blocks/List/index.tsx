@@ -1,6 +1,4 @@
 import { ListBlock, ListItem, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../../styles'
-import { ListWrapper } from './styles'
 import React, { FC } from 'react'
 
 type SubListProps = {
@@ -36,16 +34,16 @@ const SubList: FC<SubListProps> = ({ item, Wrapper }) => {
  * @group VisualContent Renderers
  */
 const List: FC<VisualDataBlock<ListBlock>> = ({ data }) => {
-  const listElement = data.style === 'ordered' ? 'ol' : 'ul'
+  const ListWrapper = data.style === 'ordered' ? 'ol' : 'ul'
 
   return (
-    <BlockWrapper className="sl-content-block sl-list">
-      <ListWrapper as={listElement} className="sl-list__root">
+    <div className="sl-content-block sl-list">
+      <ListWrapper className="sl-list__root">
         {data.items.map((item, index) => (
-          <SubList key={index} item={item} Wrapper={listElement} />
+          <SubList key={index} item={item} Wrapper={ListWrapper} />
         ))}
       </ListWrapper>
-    </BlockWrapper>
+    </div>
   )
 }
 
