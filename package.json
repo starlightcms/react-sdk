@@ -66,8 +66,6 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@starlightcms/js-sdk": "^2.1.0",
     "sass": "^1.69.5"
   },

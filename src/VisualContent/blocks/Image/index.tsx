@@ -85,7 +85,13 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
 
   return (
     <div className={`sl-content-block sl-image sl-width-${widthType}`}>
-      <figure className="sl-figure">
+      <figure
+        className="sl-figure"
+        style={{
+          width: calculatedWidth,
+          maxWidth: calculatedMaxWidth,
+        }}
+      >
         {href ? (
           <a href={href} target={target}>
             <img
@@ -94,10 +100,6 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
               alt={alt}
               srcSet={srcSet}
               sizes={responsive ? sizes : undefined}
-              style={{
-                width: calculatedWidth,
-                maxWidth: calculatedMaxWidth,
-              }}
             />
           </a>
         ) : (
@@ -107,10 +109,6 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
             alt={alt}
             srcSet={srcSet}
             sizes={responsive ? sizes : undefined}
-            style={{
-              width: calculatedWidth,
-              maxWidth: calculatedMaxWidth,
-            }}
           />
         )}
         {caption && (

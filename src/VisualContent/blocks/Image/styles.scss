@@ -1,21 +1,13 @@
 .sl-image > .sl-figure {
   margin: 1em auto;
+
+  > a {
+    width: 100%;
+  }
 }
 
 .sl-image__img {
   display: block;
-  margin: auto;
+  width: 100%;
   object-fit: cover;
 }
-
-//.sl-width-auto {
-//  .sl-image__img {
-//    width: initial;
-//  }
-//}
-//
-//.sl-width-justify, .sl-width-max {
-//  .sl-image__img {
-//    width: 100%;
-//  }
-//}
