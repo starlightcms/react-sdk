@@ -16,7 +16,12 @@ import React, { FC } from 'react'
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
   if (!data.text)
     return (
-      <div className="sl-content-block sl-paragraph empty" aria-hidden>
+      <div
+        className={`sl-content-block sl-paragraph ${
+          data.alignment ? `sl-alignment-${data.alignment}` : ''
+        } empty`}
+        aria-hidden
+      >
         <p>
           <br />
         </p>
@@ -24,7 +29,11 @@ const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
     )
 
   return (
-    <div className="sl-content-block sl-paragraph">
+    <div
+      className={`sl-content-block sl-paragraph ${
+        data.alignment ? `sl-alignment-${data.alignment}` : ''
+      }`}
+    >
       <p dangerouslySetInnerHTML={{ __html: data.text }} />
     </div>
   )

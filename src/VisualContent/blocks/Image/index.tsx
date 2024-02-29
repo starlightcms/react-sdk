@@ -29,7 +29,16 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   data,
   sizes = '(max-width: 480px) 90vw, 70vw',
 }) => {
-  const { url, alt = '', files, caption, width, href, responsive } = data
+  const {
+    url,
+    alt = '',
+    files,
+    caption,
+    width,
+    href,
+    responsive,
+    alignment,
+  } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
@@ -84,7 +93,11 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   }, [])
 
   return (
-    <div className={`sl-content-block sl-image sl-width-${widthType}`}>
+    <div
+      className={`sl-content-block sl-image sl-width-${widthType} ${
+        alignment ? `sl-alignment-${alignment}` : ''
+      }`}
+    >
       <figure
         className="sl-figure"
         style={{

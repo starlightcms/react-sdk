@@ -16,7 +16,11 @@ const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
   const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
-    <div className="sl-content-block sl-header">
+    <div
+      className={`sl-content-block sl-header ${
+        data.alignment ? `sl-alignment-${data.alignment}` : ''
+      }`}
+    >
       <HeaderComponent dangerouslySetInnerHTML={{ __html: data.text }} />
     </div>
   )
