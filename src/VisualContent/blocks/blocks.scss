@@ -1,0 +1,31 @@
+.sl-content-block {
+  margin: auto;
+
+  &.sl-width-max {
+    max-width: 100%;
+  }
+}
+
+.sl-header.sl-alignment-start, .sl-paragraph.sl-alignment-start {
+  text-align: start;
+}
+
+.sl-header.sl-alignment-center, .sl-paragraph.sl-alignment-center {
+  text-align: center;
+}
+
+.sl-header.sl-alignment-end, .sl-paragraph.sl-alignment-end {
+  text-align: end;
+}
+
+.sl-header.sl-alignment-justify, .sl-paragraph.sl-alignment-justify {
+  text-align: justify;
+}
+
+.sl-figure {
+  figcaption {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+}

@@ -1,7 +1,5 @@
 import { ImageBlock, VisualDataBlock } from '@starlightcms/js-sdk'
 import React, { FC, useEffect, useMemo, useState } from 'react'
-import { ImageWrapper, SelectedImage } from './styles'
-import { BlockWrapper } from '../../styles'
 
 /**
  * Type used by {@link ImageComponent} to accept a `sizes` prop.
@@ -31,7 +29,16 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   data,
   sizes = '(max-width: 480px) 90vw, 70vw',
 }) => {
-  const { url, alt = '', files, caption, width, href, responsive } = data
+  const {
+    url,
+    alt = '',
+    files,
+    caption,
+    width,
+    href,
+    responsive,
+    alignment,
+  } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
@@ -39,6 +46,32 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   const [originalWidth, setOriginalWidth] = useState<string | undefined>(
     undefined
   )
+
+  const calculatedWidth = useMemo(() => {
+    switch (width) {
+      case 'auto':
+        return 'auto'
+      case 'justify':
+      case 'max':
+        return '100%'
+      default:
+        return width
+    }
+  }, [width])
+
+  const calculatedMaxWidth = useMemo(() => {
+    if (responsive && originalWidth && width === 'auto') return originalWidth
+
+    switch (width) {
+      case 'auto':
+        return '100%'
+      case 'justify':
+      case 'max':
+        return 'initial'
+      default:
+        return originalWidth
+    }
+  }, [width, responsive, originalWidth])
 
   const srcSet = useMemo(() => {
     return data.files.map((file) => `${file.url} ${file.width}w`).join(', ')
@@ -60,34 +93,42 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
   }, [])
 
   return (
-    <BlockWrapper className={`sl-content-block sl-image sl-width-${widthType}`}>
-      <ImageWrapper>
+    <div
+      className={`sl-content-block sl-image sl-width-${widthType} ${
+        alignment ? `sl-alignment-${alignment}` : ''
+      }`}
+    >
+      <figure
+        className="sl-figure"
+        style={{
+          width: calculatedWidth,
+          maxWidth: calculatedMaxWidth,
+        }}
+      >
         {href ? (
           <a href={href} target={target}>
-            <SelectedImage
-              width={width}
+            <img
+              className="sl-image__img"
               src={url}
               alt={alt}
               srcSet={srcSet}
               sizes={responsive ? sizes : undefined}
-              originalWidth={data.responsive ? originalWidth : undefined}
             />
           </a>
         ) : (
-          <SelectedImage
-            width={width}
+          <img
+            className="sl-image__img"
             src={url}
             alt={alt}
             srcSet={srcSet}
             sizes={responsive ? sizes : undefined}
-            originalWidth={data.responsive ? originalWidth : undefined}
           />
         )}
         {caption && (
           <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
         )}
-      </ImageWrapper>
-    </BlockWrapper>
+      </figure>
+    </div>
   )
 }
 

@@ -2,7 +2,6 @@ import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
 import Image, { ImageOptions } from './blocks/Image'
 import Paragraph from './blocks/Paragraph'
-import { OuterWrapper } from './styles'
 import React, { useMemo } from 'react'
 import Header from './blocks/Header'
 import Quote from './blocks/Quote'
@@ -105,12 +104,12 @@ export const VisualContent = ({
         key={block.id}
         id={block.id}
         type={block.type}
-        data={{ text: excerptText }}
+        data={{ text: excerptText, alignment: block.data.alignment }}
       />
     )
   }
   return (
-    <OuterWrapper className="sl-visual-content">
+    <div className="sl-visual-content">
       {content.blocks.map((block) => {
         const Component = componentList[block.type]
 
@@ -125,7 +124,7 @@ export const VisualContent = ({
           />
         )
       })}
-    </OuterWrapper>
+    </div>
   )
 }
 
