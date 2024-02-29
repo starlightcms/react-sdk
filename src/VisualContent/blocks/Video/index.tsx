@@ -13,12 +13,16 @@ import React, { FC } from 'react'
  * @group VisualContent Renderers
  */
 const Video: FC<VisualDataBlock<VideoBlock>> = ({ data }) => {
-  const { html, width, caption } = data
+  const { html, width, caption, alignment } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
   return (
-    <div className={`sl-content-block sl-video sl-width-${widthType}`}>
+    <div
+      className={`sl-content-block sl-video sl-width-${widthType} ${
+        alignment ? `sl-alignment-${alignment}` : ''
+      }`}
+    >
       <figure className="sl-figure">
         <div
           dangerouslySetInnerHTML={{ __html: html }}

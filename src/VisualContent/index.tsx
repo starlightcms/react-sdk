@@ -104,7 +104,7 @@ export const VisualContent = ({
         key={block.id}
         id={block.id}
         type={block.type}
-        data={{ text: excerptText }}
+        data={{ text: excerptText, alignment: block.data.alignment }}
       />
     )
   }
