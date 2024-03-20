@@ -14,14 +14,15 @@ import React, { FC } from 'react'
  * @group VisualContent Renderers
  */
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
+  const { alignment, isStretched } = data
+
+  const baseClasses = `sl-content-block sl-paragraph 
+        ${alignment ? `sl-alignment-${alignment}` : ''}
+        ${isStretched ? 'sl-stretched' : ''}`
+
   if (!data.text)
     return (
-      <div
-        className={`sl-content-block sl-paragraph ${
-          data.alignment ? `sl-alignment-${data.alignment}` : ''
-        } empty`}
-        aria-hidden
-      >
+      <div className={`${baseClasses} empty`} aria-hidden>
         <p>
           <br />
         </p>
@@ -29,11 +30,7 @@ const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
     )
 
   return (
-    <div
-      className={`sl-content-block sl-paragraph ${
-        data.alignment ? `sl-alignment-${data.alignment}` : ''
-      }`}
-    >
+    <div className={baseClasses}>
       <p dangerouslySetInnerHTML={{ __html: data.text }} />
     </div>
   )

@@ -104,10 +104,11 @@ export const VisualContent = ({
         key={block.id}
         id={block.id}
         type={block.type}
-        data={{ text: excerptText, alignment: block.data.alignment }}
+        data={{ text: excerptText } as ParagraphBlock}
       />
     )
   }
+
   return (
     <div className="sl-visual-content">
       {content.blocks.map((block) => {

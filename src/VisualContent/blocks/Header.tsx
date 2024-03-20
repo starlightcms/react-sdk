@@ -13,13 +13,16 @@ import React from 'react'
  * @group VisualContent Renderers
  */
 const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
+  const { alignment, isStretched } = data
+
   const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
     <div
-      className={`sl-content-block sl-header ${
-        data.alignment ? `sl-alignment-${data.alignment}` : ''
-      }`}
+      className={`sl-content-block sl-header 
+      ${alignment ? `sl-alignment-${alignment}` : ''}
+      ${isStretched ? 'sl-stretched' : ''}
+      `}
     >
       <HeaderComponent dangerouslySetInnerHTML={{ __html: data.text }} />
     </div>
