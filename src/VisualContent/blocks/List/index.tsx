@@ -6,21 +6,19 @@ type SubListProps = {
   Wrapper: 'ul' | 'ol'
 }
 
-const SubList: FC<SubListProps> = ({ item, Wrapper }) => {
-  return (
-    <li>
-      <span dangerouslySetInnerHTML={{ __html: item.content }} />
-      {item.items && item.items.length ? (
-        <Wrapper>
-          {item.items &&
-            item.items.map((subItem, index) => (
-              <SubList key={index} item={subItem} Wrapper={Wrapper} />
-            ))}
-        </Wrapper>
-      ) : null}
-    </li>
-  )
-}
+const SubList: FC<SubListProps> = ({ item, Wrapper }) => (
+  <li>
+    <span dangerouslySetInnerHTML={{ __html: item.content }} />
+    {item.items && item.items.length ? (
+      <Wrapper>
+        {item.items &&
+          item.items.map((subItem, index) => (
+            <SubList key={index} item={subItem} Wrapper={Wrapper} />
+          ))}
+      </Wrapper>
+    ) : null}
+  </li>
+)
 
 /**
  * VisualContent renderer component that renders `list` type blocks
@@ -37,7 +35,11 @@ const List: FC<VisualDataBlock<ListBlock>> = ({ data }) => {
   const ListWrapper = data.style === 'ordered' ? 'ol' : 'ul'
 
   return (
-    <div className="sl-content-block sl-list">
+    <div
+      className={`sl-content-block sl-list
+      ${data.isStretched ? 'sl-stretched' : ''}
+      `}
+    >
       <ListWrapper className="sl-list__root">
         {data.items.map((item, index) => (
           <SubList key={index} item={item} Wrapper={ListWrapper} />

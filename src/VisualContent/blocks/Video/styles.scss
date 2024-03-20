@@ -21,14 +21,14 @@
   }
 }
 
-.sl-video.sl-width-auto {
-  > figure.sl-figure iframe {
+.sl-video--width-auto {
+  iframe {
     width: initial;
   }
 }
 
-.sl-video.sl-width-justify, .sl-video.sl-width-max, .sl-video.sl-width-fixed {
-  > figure.sl-figure iframe {
+.sl-video--width-justify, .sl-video--width-max, .sl-video--width-fixed {
+  iframe {
     width: 100%;
   }
 }

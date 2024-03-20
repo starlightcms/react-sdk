@@ -38,6 +38,7 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
     href,
     responsive,
     alignment,
+    isStretched,
   } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
@@ -94,12 +95,13 @@ const Image: FC<VisualDataBlock<ImageBlock> & ImageOptions> = ({
 
   return (
     <div
-      className={`sl-content-block sl-image sl-width-${widthType} ${
-        alignment ? `sl-alignment-${alignment}` : ''
-      }`}
+      className={`sl-content-block sl-image 
+      ${alignment ? `sl-alignment-${alignment}` : ''} 
+      ${isStretched || widthType === 'max' ? 'sl-stretched' : ''}
+      `}
     >
       <figure
-        className="sl-figure"
+        className={`sl-figure sl-image--width-${widthType}`}
         style={{
           width: calculatedWidth,
           maxWidth: calculatedMaxWidth,

@@ -1,9 +1,12 @@
 .sl-content-block {
   margin: auto;
 
-  &.sl-width-max {
-    max-width: 100%;
-  }
+  width: 100%;
+  max-width: var(--sl-max-block-width);
+}
+
+.sl-stretched {
+  max-width: 100%;
 }
 
 .sl-header.sl-alignment-start, .sl-paragraph.sl-alignment-start {
