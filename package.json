@@ -7,8 +7,11 @@
   ],
   "main": "dist/cjs/index.js",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    },
+    "./styles.css": "./dist/esm/styles.css"
   },
   "scripts": {
     "build": "rimraf dist && npm run build:cjs && npm run build:esm",
@@ -62,7 +65,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@starlightcms/js-sdk": "^2.1.0"
+    "@starlightcms/js-sdk": "^2.2.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
