@@ -17,6 +17,7 @@ const transparentImage =
  *
  * @group ResponsiveImage
  */
+
 export const GlobalLazyloadStyles = (): ReactNode => {
   return (
     <noscript>
@@ -177,7 +178,7 @@ export const ResponsiveImage = ({
     <>
       <img
         ref={imageRef}
-        className={'sl-lazyload ' + className}
+        className={'sl-lazyload sl-responsive-image ' + className}
         style={imageStyle}
         src={canLoad ? source?.path || (image as string) : transparentImage}
         srcSet={canLoad ? (sourceSet ? sourceSet : undefined) : undefined}

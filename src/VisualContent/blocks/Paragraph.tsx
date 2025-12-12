@@ -1,5 +1,4 @@
 import { ParagraphBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../styles'
 import React, { FC } from 'react'
 
 /**
@@ -17,17 +16,17 @@ import React, { FC } from 'react'
 const Paragraph: FC<VisualDataBlock<ParagraphBlock>> = ({ data }) => {
   if (!data.text)
     return (
-      <BlockWrapper className="sl-content-block sl-paragraph empty" aria-hidden>
+      <div className="sl-content-block sl-paragraph empty" aria-hidden>
         <p>
           <br />
         </p>
-      </BlockWrapper>
+      </div>
     )
 
   return (
-    <BlockWrapper className="sl-content-block sl-paragraph">
+    <div className="sl-content-block sl-paragraph">
       <p dangerouslySetInnerHTML={{ __html: data.text }} />
-    </BlockWrapper>
+    </div>
   )
 }
 

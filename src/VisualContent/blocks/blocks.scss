@@ -1,0 +1,15 @@
+.sl-content-block {
+  margin: auto;
+
+  &.sl-width-max {
+    max-width: 100%;
+  }
+}
+
+.sl-figure {
+  figcaption {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+}
