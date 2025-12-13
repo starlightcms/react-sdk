@@ -12,15 +12,17 @@ import React, { FC } from 'react'
  * type of data this component receives.
  * @group VisualContent Renderers
  */
-const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => {
-  return (
-    <div className="sl-content-block sl-html">
-      <div
-        className="sl-html__root"
-        dangerouslySetInnerHTML={{ __html: data.html }}
-      />
-    </div>
-  )
-}
+const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => (
+  <div
+    className={`sl-content-block sl-html 
+    ${data.isStretched ? 'sl-stretched' : ''}
+    `}
+  >
+    <div
+      className="sl-html__root"
+      dangerouslySetInnerHTML={{ __html: data.html }}
+    />
+  </div>
+)
 
 export default HTML

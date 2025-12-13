@@ -13,13 +13,18 @@ import React, { FC } from 'react'
  * @group VisualContent Renderers
  */
 const Video: FC<VisualDataBlock<VideoBlock>> = ({ data }) => {
-  const { html, width, caption } = data
+  const { html, width, caption, alignment, isStretched } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
   return (
-    <div className={`sl-content-block sl-video sl-width-${widthType}`}>
-      <figure className="sl-figure">
+    <div
+      className={`sl-content-block sl-video 
+      ${alignment ? `sl-alignment-${alignment}` : ''}
+      ${isStretched || widthType === 'max' ? 'sl-stretched' : ''}
+      `}
+    >
+      <figure className={`sl-figure sl-video--width-${widthType}`}>
         <div
           dangerouslySetInnerHTML={{ __html: html }}
           style={{ maxWidth: widthType === 'fixed' ? `${width}` : undefined }}

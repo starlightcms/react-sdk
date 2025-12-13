@@ -1,4 +1,6 @@
 .sl-video {
+  display: flex;
+
   > figure.sl-figure {
     margin: 0;
 
@@ -21,22 +23,35 @@
   }
 }
 
-.sl-width-auto {
-  > figure {
-    > div {
-      > iframe {
-        width: initial;
-      }
-    }
+.sl-video--width-auto {
+  width: initial;
+
+  iframe {
+    width: initial;
   }
 }
 
-.sl-width-justify, .sl-width-max, .sl-width-fixed {
-  > figure.sl-figure {
-    > div {
-      > iframe {
-        width: 100%;
-      }
-    }
+.sl-video--width-justify, .sl-video--width-max, .sl-video--width-fixed {
+  width: 100%;
+
+  iframe {
+    width: 100%;
   }
 }
+
+.sl-video.sl-alignment-start {
+  justify-content: flex-start;
+}
+
+.sl-video.sl-alignment-center {
+  justify-content: center;
+}
+
+.sl-video.sl-alignment-end {
+  justify-content: flex-end;
+}
+
+.sl-video.sl-alignment-justify {
+  justify-content: stretch;
+}
+
