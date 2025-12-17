@@ -1,6 +1,4 @@
 import { HTMLBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../../styles'
-import { HTMLWrapper } from './styles'
 import React, { FC } from 'react'
 
 /**
@@ -14,12 +12,17 @@ import React, { FC } from 'react'
  * type of data this component receives.
  * @group VisualContent Renderers
  */
-const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => {
-  return (
-    <BlockWrapper className="sl-content-block sl-html">
-      <HTMLWrapper dangerouslySetInnerHTML={{ __html: data.html }} />
-    </BlockWrapper>
-  )
-}
+const HTML: FC<VisualDataBlock<HTMLBlock>> = ({ data }) => (
+  <div
+    className={`sl-content-block sl-html 
+    ${data.isStretched ? 'sl-stretched' : ''}
+    `}
+  >
+    <div
+      className="sl-html__root"
+      dangerouslySetInnerHTML={{ __html: data.html }}
+    />
+  </div>
+)
 
 export default HTML

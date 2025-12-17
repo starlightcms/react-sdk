@@ -1,8 +1,6 @@
-'use client'
+.sl-visual-content {
+  --sl-max-block-width: 100%;
 
-import styled from '@emotion/styled'
-
-export const OuterWrapper = styled.div`
   .sl__color {
     padding: 2px 0;
     border-radius: 4px;
@@ -67,20 +65,4 @@ export const OuterWrapper = styled.div`
       }
     }
   }
-`
-
-export const BlockWrapper = styled.div`
-  margin: auto;
-
-  &.sl-width-max {
-    max-width: 100%;
-  }
-`
-
-export const FigureWrapper = styled.figure`
-  figcaption {
-    display: flex;
-    justify-content: center;
-    margin-top: 6px;
-  }
-`
+}

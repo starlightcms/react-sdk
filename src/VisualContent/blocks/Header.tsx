@@ -1,5 +1,4 @@
 import { HeaderBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../styles'
 import React from 'react'
 
 /**
@@ -14,12 +13,19 @@ import React from 'react'
  * @group VisualContent Renderers
  */
 const Header = ({ data }: VisualDataBlock<HeaderBlock>): JSX.Element => {
+  const { alignment, isStretched } = data
+
   const HeaderComponent = `h${data.level}` as 'h1'
 
   return (
-    <BlockWrapper className="sl-content-block sl-header">
+    <div
+      className={`sl-content-block sl-header 
+      ${alignment ? `sl-alignment-${alignment}` : ''}
+      ${isStretched ? 'sl-stretched' : ''}
+      `}
+    >
       <HeaderComponent dangerouslySetInnerHTML={{ __html: data.text }} />
-    </BlockWrapper>
+    </div>
   )
 }
 

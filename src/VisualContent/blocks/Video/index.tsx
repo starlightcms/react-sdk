@@ -1,6 +1,4 @@
 import { VideoBlock, VisualDataBlock } from '@starlightcms/js-sdk'
-import { BlockWrapper } from '../../styles'
-import { VideoWrapper } from './styles'
 import React, { FC } from 'react'
 
 /**
@@ -15,20 +13,28 @@ import React, { FC } from 'react'
  * @group VisualContent Renderers
  */
 const Video: FC<VisualDataBlock<VideoBlock>> = ({ data }) => {
-  const { html, width, caption } = data
+  const { html, width, caption, alignment, isStretched } = data
 
   const widthType = ['auto', 'justify', 'max'].includes(width) ? width : 'fixed'
 
   return (
-    <BlockWrapper className={`sl-content-block sl-video sl-width-${widthType}`}>
-      <VideoWrapper width={width}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      className={`sl-content-block sl-video 
+      ${alignment ? `sl-alignment-${alignment}` : ''}
+      ${isStretched || widthType === 'max' ? 'sl-stretched' : ''}
+      `}
+    >
+      <figure className={`sl-figure sl-video--width-${widthType}`}>
+        <div
+          dangerouslySetInnerHTML={{ __html: html }}
+          style={{ maxWidth: widthType === 'fixed' ? `${width}` : undefined }}
+        />
 
         {caption && (
           <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
         )}
-      </VideoWrapper>
-    </BlockWrapper>
+      </figure>
+    </div>
   )
 }
 

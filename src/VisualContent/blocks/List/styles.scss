@@ -1,0 +1,23 @@
+.sl-list {
+  > ul.sl-list__root {
+    list-style: none;
+
+    > li {
+      &::before {
+        content: '•';
+      }
+    }
+  }
+}
+
+.sl-list__root {
+  padding-left: 1em;
+
+  > li {
+    margin: 0.5em 0;
+
+    &::before {
+      margin-right: 0.5em;
+    }
+  }
+}
