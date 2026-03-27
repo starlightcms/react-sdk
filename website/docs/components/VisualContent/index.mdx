@@ -9,9 +9,7 @@ import styles from './index.module.scss'
 
 ## Componente {#component}
 
-<APILink href="/api/function/VisualContent"/>
-
-O componente [VisualContent](/api/function/VisualContent) renderiza conteúdo de um campo de Editor Visual do Starlight
+O componente VisualContent renderiza conteúdo de um campo de Editor Visual do Starlight
 em HTML.
 
 Para fins ilustrativos, esse é um exemplo de um conteúdo básico renderizado nessa página:
@@ -91,7 +89,7 @@ Todos os componentes que renderizam blocos podem ser personalizados, e os tipos 
 tabela abaixo. Para substituir um componente, passe um objeto para a propriedade `components` onde cada chave é um tipo
 da tabela abaixo, assim como foi feito com o componente `list` no exemplo acima.
 
-Todo componente recebe um objeto do tipo [VisualDataBlock](/api/interface/VisualDataBlock) que contém 3 propriedades:
+Todo componente recebe um objeto do tipo `VisualDataBlock` que contém 3 propriedades:
 `id`, `type` e `data`.
 
 - `id` pode ser usado para identificar o bloco atual dentro do conteúdo.
@@ -108,15 +106,15 @@ para servir de referência na hora de implementar um componente customizado.
 
 O `VisualContent` suporta os seguintes tipos de bloco:
 
-| Nome do bloco | Tipo        | Dados recebidos pelo componente                 | Componente padrão                                      |
-|---------------|-------------|-------------------------------------------------|--------------------------------------------------------|
-| Cabeçalho     | `header`    | [HeaderBlock](/api/interface/HeaderBlock)       | [HeaderComponent](/api/function/HeaderComponent)       |
-| Citação       | `quote`     | [QuoteBlock](/api/interface/QuoteBlock)         | [QuoteComponent](/api/function/QuoteComponent)         |
-| HTML          | `raw`       | [HTMLBlock](/api/interface/HTMLBlock)           | [HTMLComponent](/api/function/HTMLComponent)           |
-| Imagem        | `image`     | [ImageBlock](/api/interface/ImageBlock)         | [ImageComponent](/api/function/ImageComponent)         |
-| Lista         | `list`      | [ListBlock](/api/interface/ListBlock)           | [ListComponent](/api/function/ListComponent)           |
-| Parágrafo     | `paragraph` | [ParagraphBlock](/api/interface/ParagraphBlock) | [ParagraphComponent](/api/function/ParagraphComponent) |
-| Vídeo         | `video`     | [VideoBlock](/api/interface/VideoBlock)         | [VideoComponent](/api/function/VideoComponent)         |
+| Nome do bloco | Tipo        | Dados recebidos pelo componente                                    | Componente padrão                                                                                                       |
+|---------------|-------------|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Cabeçalho     | `header`    | [HeaderBlock](https://js.sdk.starlight.sh/api#HeaderBlock)         | [HeaderComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/Header.tsx)       |
+| Citação       | `quote`     | [QuoteBlock](https://js.sdk.starlight.sh/api/interface/QuoteBlock) | [QuoteComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/Quote.tsx)         |
+| HTML          | `raw`       | [HTMLBlock](https://js.sdk.starlight.sh/api#HTMLBlock)             | [HTMLComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/HTML/index.tsx)     |
+| Imagem        | `image`     | [ImageBlock](https://js.sdk.starlight.sh/api#ImageBlock)           | [ImageComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/Image/index.tsx)   |
+| Lista         | `list`      | [ListBlock](https://js.sdk.starlight.sh/api#ListBlock)             | [ListComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/List/index.tsx)     |
+| Parágrafo     | `paragraph` | [ParagraphBlock](https://js.sdk.starlight.sh/api#ParagraphBlock)   | [ParagraphComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/Paragraph.tsx) |
+| Vídeo         | `video`     | [VideoBlock](https://js.sdk.starlight.sh/api#VideoBlock)           | [VideoComponent](https://github.com/starlightcms/react-sdk/blob/development/src/VisualContent/blocks/Video/index.tsx)   |
 
 Para criar componentes personalizados, sugerimos que você copie o código-fonte do bloco padrão que deseja personalizar
 e faça as alterações que desejar a partir disso. Você pode visualizar o
@@ -146,15 +144,15 @@ As classes CSS usadas pelos componentes padrões do `VisualContent` são as segu
   |---------------------|:------------------------------------------------------:|--------------------------------------------------------------------------|
   | `sl-visual-content` |                    `VisualContent`                     | Elemento raíz que envolve todo o conteúdo.                               |
   | `sl-content-block`  |                    Todos os blocos                     | Elemento que envolve o conteúdo de um bloco.                             |
-  | `sl-header`         |    [HeaderComponent](/api/function/HeaderComponent)    | Elemento que envolve um bloco de cabeçalho.                              |
-  | `sl-quote`          |     [QuoteComponent](/api/function/QuoteComponent)     | Elemento que envolve um bloco de citação.                                |
-  | `sl-html`           |      [HTMLComponent](/api/function/HTMLComponent)      | Elemento que envolve um bloco de HTML.                                   |
-  | `sl-image`          |     [ImageComponent](/api/function/ImageComponent)     | Elemento que envolve um bloco de imagem.                                 |
-  | `sl-list`           |      [ListComponent](/api/function/ListComponent)      | Elemento que envolve um bloco de lista.                                  |
-  | `sl-list__root`     |      [ListComponent](/api/function/ListComponent)      | Elemento que envolve a primeira lista (a lista raíz) do bloco de lista.  |
-  | `sl-paragraph`      | [ParagraphComponent](/api/function/ParagraphComponent) | Elemento que envolve um bloco de parágrafo.                              |
-  | `empty`             | [ParagraphComponent](/api/function/ParagraphComponent) | Elemento que envolve um bloco de parágrafo vazio (sem conteúdo).         |
-  | `sl-video`          |     [VideoComponent](/api/function/VideoComponent)     | Elemento que envolve um bloco de vídeo.                                  |
+  | `sl-header`         |    HeaderComponent    | Elemento que envolve um bloco de cabeçalho.                              |
+  | `sl-quote`          |     QuoteComponent     | Elemento que envolve um bloco de citação.                                |
+  | `sl-html`           |      HTMLComponent      | Elemento que envolve um bloco de HTML.                                   |
+  | `sl-image`          |     ImageComponent     | Elemento que envolve um bloco de imagem.                                 |
+  | `sl-list`           |      ListComponent      | Elemento que envolve um bloco de lista.                                  |
+  | `sl-list__root`     |      ListComponent      | Elemento que envolve a primeira lista (a lista raíz) do bloco de lista.  |
+  | `sl-paragraph`      | ParagraphComponent | Elemento que envolve um bloco de parágrafo.                              |
+  | `empty`             | ParagraphComponent | Elemento que envolve um bloco de parágrafo vazio (sem conteúdo).         |
+  | `sl-video`          |     VideoComponent     | Elemento que envolve um bloco de vídeo.                                  |
   | `sl-width-fixed`    |                    Todos os blocos                     | Denota que a largura do bloco é fixa (definida pelo usuário).            |
   | `sl-width-auto`     |                    Todos os blocos                     | Denota que a largura do bloco é definida automaticamente pelo navegador. |
   | `sl-width-justify`  |                    Todos os blocos                     | Denota que a largura do bloco é justificada ao texto.                    |
@@ -221,7 +219,8 @@ que a largura de certos blocos, como algumas imagens, exceda a largura do conte�
     <source media="(prefers-color-scheme: light)" srcSet={require("./assets/_beforeafterlight.png").default}/>
     <IdealImage img={require('./assets/_beforeafterlight.png')}/>
   </picture>
-  <figcaption>Depois da atualização, os blocos de conteúdo continuam com a mesma largura por padrão, mas blocos que tem
+  <figcaption>
+    Depois da atualização, os blocos de conteúdo continuam com a mesma largura por padrão, mas blocos que tem
     largura máxima (<code style={{ whiteSpace: 'nowrap' }}>.sl-width-max</code>) ocupam todo o espaço disponível na tela.
   </figcaption>
 </figure>
@@ -255,7 +254,7 @@ que esse sempre utiliza toda a largura disponibilizada pelo seu elemento pai.
 
 ### Imagens responsivas {#responsive-images}
 
-O componente [ImageComponent](/api/function/ImageComponent), que renderiza blocos do tipo `image` por padrão, provê uma
+O componente ImageComponent, que renderiza blocos do tipo `image` por padrão, provê uma
 propriedade adicional para dar suporte a imagens responsivas: a propriedade `sizes`. Essa propriedade define
 [o atributo de mesmo nome na tag `<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-sizes) que é
 renderizada.

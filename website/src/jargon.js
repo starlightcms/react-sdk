@@ -32,4 +32,4 @@ const jargon = {
   slugs: slug,
 }
 
-module.exports = jargon
+export default jargon

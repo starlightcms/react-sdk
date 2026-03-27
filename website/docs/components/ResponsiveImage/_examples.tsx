@@ -1,7 +1,7 @@
 import React from 'react'
 import CodeBlock from '@theme/CodeBlock'
 import styles from './index.module.scss'
-import { ResponsiveImage } from '../../../../src'
+import { ResponsiveImage } from '@starlightcms/react-sdk'
 
 export const Example = (): JSX.Element => {
   const example = `

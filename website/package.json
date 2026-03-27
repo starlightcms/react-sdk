@@ -15,23 +15,26 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.4.0",
-    "@docusaurus/plugin-ideal-image": "^2.4.0",
-    "@docusaurus/preset-classic": "^2.4.0",
-    "@mdx-js/react": "^1.6.22",
+    "@docusaurus/core": "^3.5.0",
+    "@docusaurus/plugin-ideal-image": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.5.0",
+    "@mdx-js/react": "^3.0.0",
+    "@starlightcms/react-sdk": "file:..",
     "clsx": "^1.2.1",
-    "docusaurus-plugin-sass": "^0.2.3",
-    "prism-react-renderer": "^1.3.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "docusaurus-plugin-sass": "^0.2.6",
+    "prism-react-renderer": "^2.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "remark-jargon": "~2.20.8",
     "sass": "^1.54.9"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.4.0",
-    "@tsconfig/docusaurus": "^1.0.5",
-    "docusaurus-plugin-typedoc-api": "^2.4.0",
-    "typescript": "^4.7.4"
+    "@docusaurus/module-type-aliases": "^3.5.0",
+    "@docusaurus/tsconfig": "^3.5.0",
+    "@docusaurus/types": "^3.5.0",
+    "@types/react": "^18.2.29",
+    "docusaurus-plugin-typedoc-api": "^4.4.0",
+    "typescript": "^5.4.5"
   },
   "browserslist": {
     "production": [
@@ -46,6 +49,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18.0"
   }
 }

@@ -1,11 +1,9 @@
-/* eslint-disable */
-// @ts-check
+import { themes } from 'prism-react-renderer'
+import rehypeJargon from 'remark-jargon'
+import jargon from './src/jargon'
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
-const rehypeJargon = require('remark-jargon')
-const jargon = require('./src/jargon')
-const path = require('path')
+const lightCodeTheme = themes.github
+const darkCodeTheme = themes.dracula
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -14,7 +12,11 @@ const config = {
   url: 'https://react.sdk.starlight.sh',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'img/favicon.ico',
 
   i18n: {
@@ -25,16 +27,6 @@ const config = {
   plugins: [
     'docusaurus-plugin-sass',
     [
-      'docusaurus-plugin-typedoc-api',
-      {
-        projectRoot: path.join(__dirname, '..'),
-        packages: ['.'],
-        typedocOptions: {
-          excludeExternals: false,
-        },
-      },
-    ],
-    [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
@@ -42,7 +34,7 @@ const config = {
         min: 640,
         steps: 4,
       },
-    ]
+    ],
   ],
 
   presets: [
@@ -62,7 +54,10 @@ const config = {
         //   blogSidebarTitle: 'Posts recentes',
         // },
         theme: {
-          customCss: [require.resolve('./src/css/custom.scss'), require.resolve('./src/css/markdown.scss')],
+          customCss: [
+            require.resolve('./src/css/custom.scss'),
+            require.resolve('./src/css/markdown.scss'),
+          ],
         },
       }),
     ],
@@ -84,11 +79,6 @@ const config = {
             position: 'left',
             label: 'Guia',
           },
-          {
-            to: 'api',
-            label: 'API',
-            position: 'left',
-          },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/starlightcms/react-sdk',
@@ -106,10 +96,6 @@ const config = {
               {
                 label: 'Guia',
                 to: '/docs/intro',
-              },
-              {
-                label: 'API',
-                to: '/api',
               },
               // {
               //   label: 'Blog',
@@ -148,4 +134,4 @@ const config = {
     }),
 }
 
-module.exports = config
+export default config
