@@ -1,6 +1,6 @@
 {
   "name": "@starlightcms/react-sdk",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "The Starlight SDK for React",
   "main": "dist/cjs/index.js",
   "exports": {
@@ -64,7 +64,7 @@
     ]
   },
   "dependencies": {
-    "@starlightcms/js-sdk": "^3.0.0"
+    "@starlightcms/js-sdk": "^4.0.0"
   },
   "peerDependencies": {
     "react": ">=18.0.0"
