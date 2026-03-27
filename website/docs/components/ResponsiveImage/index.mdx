@@ -7,9 +7,7 @@ import { Example } from './_examples'
 
 ## Componente {#component}
 
-<APILink href="/api/function/ResponsiveImage" />
-
-O componente [ResponsiveImage](/api/function/ResponsiveImage) renderiza uma imagem a partir de uma URL ou de um arquivo
+O componente **ResponsiveImage** renderiza uma imagem a partir de uma URL ou de um arquivo
 de mídia do Starlight. No caso de imagens do Starlight, o componente renderiza uma imagem responsiva. Além disso, todas
 as imagens são renderizadas com "lazy loading", o que significa que elas só carregam quando estão próximas de ficarem
 visíveis na tela do usuário.
@@ -61,7 +59,7 @@ const EntryComponent = ({ slug }) => {
 
 ## Texto alternativo {#alternative-text}
 
-O componente [ResponsiveImage](/api/function/ResponsiveImage) aceita uma propriedade `alt`, que define o atributo de
+O componente ResponsiveImage aceita uma propriedade `alt`, que define o atributo de
 mesmo nome do elemento `<img>` renderizado. Por exemplo:
 
 ```jsx
@@ -96,7 +94,7 @@ não precisa fazer nada para configurar isso.
 
 ## Responsividade {#responsiveness}
 
-A seção [Variações](#variations) acima detalha como o componente [ResponsiveImage](/api/function/ResponsiveImage) cria
+A seção [Variações](#variations) acima detalha como o componente ResponsiveImage cria
 o atributo `srcset`. Porém, para esse atributo funcionar da melhor maneira, você precisa definir a propriedade `sizes`.
 
 Você pode dar uma olhada na [página sobre imagens responsivas no MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#resolution_switching_different_sizes)
@@ -118,7 +116,7 @@ const RenderFeaturedImage = ({ entry }) => {
 
 ## Lazy loading {#lazy-loading}
 
-As imagens renderizadas pelo componente [ResponsiveImage](/api/function/ResponsiveImage) carregam dinamicamente
+As imagens renderizadas pelo componente ResponsiveImage carregam dinamicamente
 dependendo se elas estão visíveis na tela do usuário ou não. Essa técnica é chamada de
 [lazy loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading).
 
@@ -128,10 +126,10 @@ Você não precisa fazer nada para o lazy loading funcionar, mas há algumas pro
 
 Em navegadores antigos, ou quando o usuário desabilita o JavaScript no seu navegador, o lazy loading pode não funcionar.
 Quando isso acontece, o navegador renderiza a imagem duas vezes. Isso acontece porque o componente
-[ResponsiveImage](/api/function/ResponsiveImage) renderiza duas imagens: uma para navegadores com JavaScript ativado, e
+ResponsiveImage renderiza duas imagens: uma para navegadores com JavaScript ativado, e
 uma para navegadores com JavaScript desabilitado.
 
-Para prevenir esse problema, você pode utilizar o componente [GlobalLazyloadStyles](/api/function/GlobalLazyloadStyles),
+Para prevenir esse problema, você pode utilizar o componente `GlobalLazyloadStyles`,
 que adiciona estilos CSS que escondem uma das imagens caso o JavaScript não esteja ativado. Você só precisa renderizar
 esse componente uma vez na sua aplicação. Você pode renderizar esse componente onde preferir,
 mas o ideal é inseri-lo na tag `<head>`:
@@ -225,7 +223,7 @@ Dessa maneira, o componente vai saber qual elemento deve observar, e as imagens 
 
 ### Margem para carregamento {#load-margin}
 
-Por padrão, o componente [ResponsiveImage](/api/function/ResponsiveImage) carrega imagens que estão fora da tela caso
+Por padrão, o componente ResponsiveImage carrega imagens que estão fora da tela caso
 elas estejam a menos de 200px de distância da borda da tela. Isso significa que imagens são carregadas um pouco antes
 de ficarem visíveis, o que provê um pouco de tempo para o navegador carregar a imagem,
 dependendo do quão rápido o usuário estiver navegando pela página.
