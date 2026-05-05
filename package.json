@@ -1,6 +1,6 @@
 {
   "name": "@starlightcms/react-sdk",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "The Starlight SDK for React",
   "workspaces": [
     "website"
