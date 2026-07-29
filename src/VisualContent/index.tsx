@@ -77,6 +77,7 @@ export const VisualContent = ({
   components = {},
   excerpt = false,
   excerptLength = 40,
+  openExternalLinksInNewTab = false,
 }: VisualContentProps): JSX.Element => {
   const componentList = useMemo(
     () => ({ ...defaultComponents, ...components }),
@@ -107,6 +108,7 @@ export const VisualContent = ({
         id={block.id}
         type={block.type}
         data={{ text: excerptText } as ParagraphBlock}
+        options={{ openExternalLinksInNewTab }}
       />
     )
   }
@@ -124,6 +126,7 @@ export const VisualContent = ({
             id={block.id}
             type={block.type}
             data={block.data as never}
+            options={{ openExternalLinksInNewTab }}
           />
         )
       })}

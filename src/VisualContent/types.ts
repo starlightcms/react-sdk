@@ -10,20 +10,30 @@ import {
   HTMLBlock,
   ListBlock,
   VideoBlock,
+  BlockData,
 } from '@starlightcms/js-sdk'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Implements<T, U extends T> = Record<string, unknown>
 
+export type VisualContentOptions = {
+  openExternalLinksInNewTab: boolean
+}
+
+export type BlockComponentProps<D extends BlockData = BlockData> =
+  VisualDataBlock<D> & {
+    options: VisualContentOptions
+  }
+
 export interface BlockComponents
   extends Implements<Record<BlockType, unknown>, BlockComponents> {
-  paragraph: ComponentType<VisualDataBlock<ParagraphBlock>>
-  header: ComponentType<VisualDataBlock<HeaderBlock>>
-  quote: ComponentType<VisualDataBlock<QuoteBlock>>
-  image: ComponentType<VisualDataBlock<ImageBlock>>
-  raw: ComponentType<VisualDataBlock<HTMLBlock>>
-  list: ComponentType<VisualDataBlock<ListBlock>>
-  video: ComponentType<VisualDataBlock<VideoBlock>>
+  paragraph: ComponentType<BlockComponentProps<ParagraphBlock>>
+  header: ComponentType<BlockComponentProps<HeaderBlock>>
+  quote: ComponentType<BlockComponentProps<QuoteBlock>>
+  image: ComponentType<BlockComponentProps<ImageBlock>>
+  raw: ComponentType<BlockComponentProps<HTMLBlock>>
+  list: ComponentType<BlockComponentProps<ListBlock>>
+  video: ComponentType<BlockComponentProps<VideoBlock>>
 }
 
 /**
@@ -51,4 +61,9 @@ export interface VisualContentProps {
    * excerpt is true. Defaults to 40.
    */
   excerptLength?: number
+  /**
+   * If true, links within Paragraph blocks starting with `http` or `https`
+   * will always open in a new tab. Defaults to false.
+   */
+  openExternalLinksInNewTab?: boolean
 }
