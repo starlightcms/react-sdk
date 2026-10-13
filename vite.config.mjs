@@ -12,7 +12,7 @@ export default defineConfig({
       cssFileName: 'styles'
     },
     rolldownOptions: {
-      external: ['react'],
+      external: ['react', '@starlightcms/js-sdk'],
       output: {
         exports: 'named',
         banner: '\'use client\';',
