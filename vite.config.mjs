@@ -14,8 +14,8 @@ export default defineConfig({
     rolldownOptions: {
       external: ['react', '@starlightcms/js-sdk'],
       output: {
+        preserveModules: true,
         exports: 'named',
-        banner: '\'use client\';',
         globals: {
           react: 'React',
         },

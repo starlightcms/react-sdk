@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { MediaObject } from '@starlightcms/js-sdk'
 import { ResponsiveImageProps } from './types'

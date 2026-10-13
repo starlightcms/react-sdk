@@ -1,3 +1,5 @@
+'use client'
+
 import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
 import Image, { ImageOptions } from './blocks/Image'
