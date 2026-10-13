@@ -19,7 +19,9 @@
     "docs:serve": "npm run serve -w website",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist/**/*"
@@ -57,7 +59,19 @@
     "sass": "^1.69.5",
     "typescript": "^5.9.3",
     "unplugin-dts": "^1.1.2",
-    "vite": "^8.3.3"
+    "vite": "^8.3.3",
+    "storybook": "^10.6.2",
+    "@storybook/react-vite": "^10.6.2",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-vitest": "^10.6.2",
+    "@storybook/addon-a11y": "^10.6.2",
+    "@storybook/addon-docs": "^10.6.2",
+    "@storybook/addon-onboarding": "^10.6.2",
+    "eslint-plugin-storybook": "^10.6.2",
+    "vitest": "latest",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -70,5 +84,14 @@
   },
   "peerDependencies": {
     "react": ">=18.0.0"
+  },
+  "overrides": {
+    "react-dom": "19.2.3",
+    "@storybook/addon-docs": {
+      "react": "19.2.3"
+    },
+    "@storybook/react-vite": {
+      "react": "19.2.3"
+    }
   }
 }
