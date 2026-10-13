@@ -1,5 +1,3 @@
-'use client'
-
 import { VisualDataBlock, ParagraphBlock } from '@starlightcms/js-sdk'
 import { BlockComponents, VisualContentProps } from './types'
 import Image, { ImageOptions } from './blocks/Image'
@@ -81,7 +79,7 @@ export const VisualContent = ({
 }: VisualContentProps): JSX.Element => {
   const componentList = useMemo(
     () => ({ ...defaultComponents, ...components }),
-    [components]
+    [components],
   )
 
   if (!content) {
@@ -90,8 +88,7 @@ export const VisualContent = ({
 
   if (excerpt) {
     const block = content.blocks.find((block) => block.type === 'paragraph') as
-      | VisualDataBlock<ParagraphBlock>
-      | undefined
+      VisualDataBlock<ParagraphBlock> | undefined
 
     if (!block || !block.data.text) return null as unknown as JSX.Element
 

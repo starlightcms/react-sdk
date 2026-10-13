@@ -1,6 +1,6 @@
-@import './VisualContent/styles';
-@import './VisualContent/blocks/blocks';
-@import './VisualContent/blocks/HTML/styles';
-@import './VisualContent/blocks/Image/styles';
-@import './VisualContent/blocks/List/styles';
-@import './VisualContent/blocks/Video/styles';
+@use './VisualContent/styles' as VisualContent;
+@use './VisualContent/blocks/blocks' as VisualContentBlocks;
+@use './VisualContent/blocks/HTML/styles' as HTMLBlock;
+@use './VisualContent/blocks/Image/styles' as ImageBlock;
+@use './VisualContent/blocks/List/styles' as ListBlock;
+@use './VisualContent/blocks/Video/styles' as VideoBlock;

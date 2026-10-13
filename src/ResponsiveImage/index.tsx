@@ -1,5 +1,3 @@
-'use client'
-
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { MediaObject } from '@starlightcms/js-sdk'
 import { ResponsiveImageProps } from './types'
@@ -98,7 +96,7 @@ export const ResponsiveImage = ({
     if (typeof image === 'string' || !image.files) return
 
     const chosenVariation = image.files.find(
-      (file) => file.variation === variation
+      (file) => file.variation === variation,
     )
 
     return chosenVariation
@@ -151,7 +149,7 @@ export const ResponsiveImage = ({
       {
         root: lazyRoot?.current,
         rootMargin: lazyRootMargin,
-      }
+      },
     )
 
     if (imageRef.current) {

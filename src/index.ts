@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import Starlight from '@starlightcms/js-sdk'
 export * from '@starlightcms/js-sdk'
 
