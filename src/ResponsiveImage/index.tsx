@@ -8,9 +8,9 @@ const transparentImage =
   'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 
 /**
- * Renders a `<style>` tag with a rule that disables lazy-loading when JavaScript
- * is disabled in the browser. This is useful to web crawlers that don't run
- * JS files, which is important for SEO.
+ * Renders a `<style>` tag with a rule that hides lazy-loadable image elements
+ * when JavaScript is disabled in the browser. This makes sure that blank images
+ * are not rendered for web crawlers that don't run JS files.
  *
  * You only need to render this component once in your application,
  * preferably in the `<head>` section.
@@ -127,15 +127,6 @@ export const ResponsiveImage = ({
     return sets.join(',')
   }, [source, image])
 
-  const imageStyle = useMemo(() => {
-    return {
-      backgroundColor:
-        background || hasLoaded || typeof image === 'string'
-          ? 'transparent'
-          : `#${source?.background_color ?? 'transparent'}`,
-    }
-  }, [background, source, hasLoaded, image])
-
   useEffect(() => {
     let ref: HTMLImageElement | null = null
     const observer = new IntersectionObserver(
@@ -179,11 +170,16 @@ export const ResponsiveImage = ({
       <img
         ref={imageRef}
         className={'sl-lazyload sl-responsive-image ' + className}
-        style={imageStyle}
         src={canLoad ? source?.path || (image as string) : transparentImage}
         srcSet={canLoad ? (sourceSet ? sourceSet : undefined) : undefined}
         sizes={canLoad ? (sourceSet ? sizes : undefined) : undefined}
         alt={alt}
+        data-has-loaded={hasLoaded}
+        data-bg-color={
+          background || hasLoaded || typeof image === 'string'
+            ? 'transparent'
+            : `#${source?.background_color ?? 'transparent'}`
+        }
       />
       <noscript>
         <img src={(source && source.path) || (image as string)} alt={alt} />

@@ -1,17 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { ResponsiveImage } from '../ResponsiveImage'
-import React from 'react'
+import { ResponsiveImage } from './index'
 
 const meta = {
   component: ResponsiveImage,
-  decorators: [
-    (Story) => (
-      <div style={{ width: '500px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof ResponsiveImage>
 
 export default meta

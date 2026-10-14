@@ -1,0 +1,5 @@
+.sl-responsive-image {
+  &[data-has-loaded="false"] {
+    background-color: attr(data-bg-color type(<color>)) !important;
+  }
+}
